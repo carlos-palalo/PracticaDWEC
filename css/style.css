@@ -1,0 +1,199 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: gainsboro;
+    min-width: 1280px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    width: 100%;
+    background-color: #131313;
+}
+
+.container {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+header .container,
+.container .left,
+.container .right {
+    display: flex;
+}
+
+header .container a {
+    text-decoration: none;
+    padding: 15px;
+    color: white;
+}
+
+header .container a:hover {
+    background-color: grey;
+}
+
+#search form {
+    display: flex;
+    padding: 10px;
+}
+
+#search input {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#search button {
+    background-color: #131313;
+    color: white;
+    border: none;
+    margin-left: 5px;
+    border-radius: 50px;
+}
+
+#search button:hover {
+    background-color: gainsboro;
+    color: black;
+    box-shadow: 0 1px 8px 0px red;
+}
+
+#search button span {
+    font-size: 22px;
+    padding: 5px;
+}
+
+.right {
+    margin-left: auto;
+}
+
+main .container {
+    background-color: white;
+}
+
+.container-artist {
+    background-color: grey;
+    display: flex;
+    padding: 25px;
+    position: sticky;
+}
+
+.container-artist .img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    background-color: red;
+}
+
+.container-artist .desc {
+    display: block;
+    padding: 10px;
+    margin-left: 50px;
+}
+
+.container-artist .desc .name {
+    background-color: black;
+    color: white;
+    padding: 5px 8px;
+    font-size: x-large;
+}
+
+.container-artist .desc .info {
+    padding: 5px;
+    background-color: black;
+    color: grey;
+    margin-top: 5px;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: large;
+    padding: 20px;
+}
+
+nav a:hover {
+    background-color: whitesmoke;
+}
+
+main hr {
+    border: 1px solid gainsboro;
+}
+
+.track {
+    width: 100%;
+    display: flex;
+    padding: 20px;
+}
+
+.track-img {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+}
+
+.track-content {
+    background-color: green;
+    margin-left: 10px;
+    margin-right: 40px;
+    padding: 10px;
+    flex: 1;
+}
+
+.track-header {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.track-header>a {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 2px;
+    border-radius: 50px;
+}
+
+.track-header a {
+    text-decoration: none;
+}
+
+.track-header a>span {
+    font-size: 30px;
+}
+
+.track-header>a:hover {
+    background-color: red;
+}
+
+.track-header .track-info {
+    margin-left: 10px;
+}
+
+.track-info .artist-name a {
+    color: grey;
+    font-size: small;
+    margin-bottom: 3px;
+}
+
+.track-info .track-name a {
+    color: rgb(51, 51, 51);
+}
+
+.track-info a:hover {
+    color: rgb(43, 43, 43);
+}
+
+.track-wave {
+    background-color: red;
+    height: 20px;
+}
+
+.track {
+    border-top: 1px solid gainsboro;
+}
