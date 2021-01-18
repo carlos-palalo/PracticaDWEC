@@ -428,16 +428,46 @@
                 /***************************/
                 mensaje("SE CREAN LOS ÍNDICES");
 
+                almacenAutor.createIndex("por_id", "id", { unique: true });
+                almacenAutor.createIndex("por_nombre", "nombre");
+                almacenAutor.createIndex("por_email", "email");
+                almacenAutor.createIndex("por_password", "password");
+                almacenAutor.createIndex("por_fecha_creacion", "fecha_creacion");
+                almacenAutor.createIndex("por_origen", "origen");
+                almacenAutor.createIndex("por_fondo_perfil", "fondo_perfil");
+                almacenAutor.createIndex("por_foto_perfil", "foto_perfil");
+
                 almacenAlbum.createIndex("por_id", "id", { unique: true });
                 almacenAlbum.createIndex("por_nombre", "nombre");
                 almacenAlbum.createIndex("por_lanzamiento", "lanzamiento");
                 almacenAlbum.createIndex("por_caratula", "caratula");
 
-                almacenAutor.createIndex("por_id", "id", { unique: true });
-                almacenAutor.createIndex("por_nombre", "nombre");
-                almacenAutor.createIndex("por_nombre", "nombre");
-                almacenAutor.createIndex("por_nombre", "nombre");
-                almacenAutor.createIndex("por_nombre", "nombre");
+                almacenAutorAlbum.createIndex("por_idAutor", "idAutor");
+                almacenAutorAlbum.createIndex("por_idAlbum", "idAlbum");
+
+                almacenConcierto.createIndex("por_id", "id", { unique: true });
+                almacenConcierto.createIndex("por_nombre", "nombre");
+                almacenConcierto.createIndex("por_latitud", "latitud");
+                almacenConcierto.createIndex("por_longitud", "longitud");
+                almacenConcierto.createIndex("por_fecha", "fecha");
+
+                almacenAutorConcierto.createIndex("por_idAutor", "idAutor");
+                almacenAutorConcierto.createIndex("por_idConcierto", "idConcierto");
+
+                almacenGenero.createIndex("por_id", "id", { unique: true });
+                almacenGenero.createIndex("por_nombre", "nombre");
+
+                almacenAutorGenero.createIndex("por_idAutor", "idAutor");
+                almacenAutorGenero.createIndex("por_idGenero", "idGenero");
+
+                almacenPista.createIndex("por_id", "id", { unique: true });
+                almacenPista.createIndex("por_nombre","nombre");
+                almacenPista.createIndex("por_archivo","archivo");
+                almacenPista.createIndex("por_idAlbum","idAlbum");
+
+                almacenLista.createIndex("por_id","id",{unique: true});
+                almacenLista.createIndex("")
+
             };
 
         }
