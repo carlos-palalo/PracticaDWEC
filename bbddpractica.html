@@ -461,13 +461,17 @@
                 almacenAutorGenero.createIndex("por_idGenero", "idGenero");
 
                 almacenPista.createIndex("por_id", "id", { unique: true });
-                almacenPista.createIndex("por_nombre","nombre");
-                almacenPista.createIndex("por_archivo","archivo");
-                almacenPista.createIndex("por_idAlbum","idAlbum");
+                almacenPista.createIndex("por_nombre", "nombre");
+                almacenPista.createIndex("por_archivo", "archivo");
+                almacenPista.createIndex("por_idAlbum", "idAlbum");
 
-                almacenLista.createIndex("por_id","id",{unique: true});
-                almacenLista.createIndex("")
+                almacenLista.createIndex("por_id", "id", { unique: true });
+                almacenLista.createIndex("por_nombre", "nombre");
+                almacenLista.createIndex("por_fecha", "fecha");
+                almacenLista.createIndex("por_idAutor", "idAutor");
 
+                almacenPistaLista.createIndex("por_idPista", "idPista");
+                almacenPistaLista.createIndex("por_idLista", "idLista");
             };
 
         }
