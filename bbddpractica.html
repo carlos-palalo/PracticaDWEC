@@ -39,7 +39,7 @@
                 bd = peticion.result;
                 var transaccion = bd.transaction(bd.objectStoreNames, "readwrite");
 
-                //AUTORES
+                /*************** AUTORES *************/
                 almacenAutor = transaccion.objectStore("autor");
                 almacenAutor.add({ id: 1, nombre: "Desakato", email: "desakato@gmail.com", password: "desakato", fecha_creacion: "2020", origen: "Asturias, España", foto_perfil: "/", fondo_perfil: "/" });
                 almacenAutor.add({ id: 2, nombre: "Mono Inc.", email: "monoinc@gmail.com", password: "monoinc", fecha_creacion: "2020", origen: "Hamburgo, Alemania", foto_perfil: "/", fondo_perfil: "/" });
@@ -48,7 +48,7 @@
                 almacenAutor.add({ id: 5, nombre: "La Raíz", email: "laraiz@gmail.com", password: "laraiz", fecha_creacion: "2020", origen: "Valencia, España", foto_perfil: "/", fondo_perfil: "/" });
                 almacenAutor.add({ id: 6, nombre: "Extremoduro", email: "extremoduro@gmail.com", password: "extremoduro", fecha_creacion: "2020", origen: "Cáceres, España", foto_perfil: "/", fondo_perfil: "/" });
 
-                //GENERO
+                /*************** GENERO *************/
                 almacenGenero = transaccion.objectStore("genero");
                 almacenGenero.add({ id: 1, nombre: "Hard rock" });
                 almacenGenero.add({ id: 2, nombre: "Ska" });
@@ -67,7 +67,7 @@
                 almacenGenero.add({ id: 15, nombre: "Punk" });
                 almacenGenero.add({ id: 16, nombre: "Rock alternativo" });
 
-                //AUTOR_GENERO
+                /*************** AUTOR_GENERO *************/
                 almacenAutorGenero = transaccion.objectStore("autorGenero");
                 //Desakato
                 almacenAutorGenero.add({ idAutor: 1, idGenero: 3 });
@@ -97,64 +97,17 @@
                 //Extremoduro
                 almacenAutorGenero.add({ idAutor: 6, idGenero: 1 });
 
-                //CONCIERTO
-                almacenAutor = transaccion.objectStore("autor");
-
-                //AUTOR_CONCIERTO
-                almacenAutor = transaccion.objectStore("autor");
-
-                //ALBUM
-                almacenAutor = transaccion.objectStore("autor");
-
-                //AUTOR_ALBUM
-                almacenAutor = transaccion.objectStore("autor");
-
-                //PISTA
-                almacenAutor = transaccion.objectStore("autor");
-
-                //LISTA
-                almacenAutor = transaccion.objectStore("autor");
-
-                //PISTA_LISTA
-                almacenAutor = transaccion.objectStore("autor");
-            };
-
-            peticion.onerror = function (evento) {
-                alert("No se ha creado la base de datos: " + event.target.errorCode);
-            };
-
-            peticion.onupgradeneeded = function (evento) {
-                //Escribir el código para crear o modificar la estructura de la BD (DDL)
-                //Recordatorio: Este evento sólo se ejecuta si se abre la base de datos con una versión nueva superior
-
-                mensaje("EVENTO: upgradedneeded\nSe modifica la versión o es nueva");
-                bd = peticion.result;
-
-                /***** Tabla almacenAutor *****/
-                almacenAutor = bd.createObjectStore("autor", { keyPath: "id", autoIncrement: true });
-                //almacenAutor = bd.createObjectStore("autor", { keyPath: "id" });
-
-                /***** Tabla almacenGenero *****/
-                almacenGenero = bd.createObjectStore("genero", { keyPath: "id", autoIncrement: true });
-                //almacenGenero = bd.createObjectStore("genero", { keyPath: "id" });
-
-                /***** Tabla almacenAutorGenero *****/
-                almacenAutorGenero = bd.createObjectStore("autorGenero", { keyPath: ["idAutor", "idGenero"] });
-
-
-                /***** Tabla almacenConcierto *****/
-                //almacenConcierto = bd.createObjectStore("concierto", { keyPath: "id" });
-                almacenConcierto = bd.createObjectStore("concierto", { keyPath: "id", autoIncrement: true });
+                /*************** CONCIERTO *************/
+                almacenConcierto = transaccion.objectStore("concierto");
                 almacenConcierto.add({ id: 1, nombre: "Viñarock", latitud: "/", longitud: "/", fecha: "2020" });
 
-                /***** Tabla almacenAutorConcierto *****/
-                almacenAutorConcierto = bd.createObjectStore("autorConcierto", { keyPath: ["idAutor", "idConcierto"] });
+                /*************** AUTOR_CONCIERTO *************/
+                almacenAutorConcierto = transaccion.objectStore("autorConcierto");
                 //Desakato
                 almacenAutorConcierto.add({ idAutor: 1, idConcierto: 1 });
 
-                /**** Tabla almacenAlbum ****/
-                //almacenAlbum = bd.createObjectStore("album", { keyPath: "id" });
-                almacenAlbum = bd.createObjectStore("album", { keyPath: "id", autoIncrement: true });
+                /*************** ALBUM *************/
+                almacenAlbum = transaccion.objectStore("album");
                 //Desakato
                 almacenAlbum.add({ id: 1, nombre: "Con el viento de cara", lanzamiento: "2008", caratula: "/" });
                 almacenAlbum.add({ id: 2, nombre: "Miseria, sangre y plomo", lanzamiento: "2010", caratula: "/" });
@@ -206,44 +159,44 @@
                 almacenAlbum.add({ id: 43, nombre: "Material defectuoso", lanzamiento: "2011", caratula: "/" });
                 almacenAlbum.add({ id: 44, nombre: "Para todos los públicos", lanzamiento: "2013", caratula: "/" });
 
-                /***** Tabla almacenAutorAlbum *****/
-                almacenAutorAlbum = bd.createObjectStore("autorAlbum", { keyPath: ["idAutor", "idAlbum"] });
-                //Desakato 1 7
+                /*************** AUTOR_ALBUM *************/
+                almacenAutorAlbum = transaccion.objectStore("autorAlbum");
+                //Desakato
                 for (var i = 1; i <= 7; i++) {
                     almacenAutorAlbum.add({
                         idAutor: 1,
                         idAlbum: i
                     });
                 }
-                //Mono Inc. 8 18
+                //Mono Inc.
                 for (var i = 8; i <= 18; i++) {
                     almacenAutorAlbum.add({
                         idAutor: 2,
                         idAlbum: i
                     });
                 }
-                //Lord of the Lost 19 24
+                //Lord of the Lost
                 for (var i = 19; i <= 24; i++) {
                     almacenAutorAlbum.add({
                         idAutor: 3,
                         idAlbum: i
                     });
                 }
-                //Jinjer 25 28
+                //Jinjer
                 for (var i = 25; i <= 28; i++) {
                     almacenAutorAlbum.add({
                         idAutor: 4,
                         idAlbum: i
                     });
                 }
-                //La Raíz 29 33
+                //La Raíz
                 for (var i = 29; i <= 33; i++) {
                     almacenAutorAlbum.add({
                         idAutor: 5,
                         idAlbum: i
                     });
                 }
-                //Extremoduro 34 44
+                //Extremoduro
                 for (var i = 34; i <= 44; i++) {
                     almacenAutorAlbum.add({
                         idAutor: 6,
@@ -251,9 +204,8 @@
                     });
                 }
 
-                /**** Tabla almacenPista *****/
-                almacenPista = bd.createObjectStore("pista", { keyPath: "id", autoIncrement: true });
-                //almacenPista = bd.createObjectStore("pista", { keyPath: "id" });
+                /*************** PISTA *************/
+                almacenPista = transaccion.objectStore("pista");
                 //Desakato
                 almacenPista.add({ id: 1, nombre: "Ritcher 7.5", archivo: "/", idAlbum: 1 });
                 almacenPista.add({ id: 2, nombre: "Los mineros", archivo: "/", idAlbum: 1 });
@@ -283,7 +235,7 @@
                 almacenPista.add({ id: 26, nombre: "Hipnotizados", archivo: "/", idAlbum: 7 });
                 almacenPista.add({ id: 27, nombre: "Nuestro Legado", archivo: "/", idAlbum: 7 });
                 almacenPista.add({ id: 28, nombre: "Elegante Entierro", archivo: "/", idAlbum: 7 });
-                //Mono Inc. 8 18
+                //Mono Inc.
                 almacenPista.add({ id: 29, nombre: "Burn Me", archivo: "/", idAlbum: 8 });
                 almacenPista.add({ id: 30, nombre: "The Last Waltz", archivo: "/", idAlbum: 8 });
                 almacenPista.add({ id: 31, nombre: "The Hole", archivo: "/", idAlbum: 8 });
@@ -328,7 +280,7 @@
                 almacenPista.add({ id: 70, nombre: "Louder Than Hell", archivo: "/", idAlbum: 18 });
                 almacenPista.add({ id: 71, nombre: "Warriors", archivo: "/", idAlbum: 18 });
                 almacenPista.add({ id: 72, nombre: "Shining Light", archivo: "/", idAlbum: 18 });
-                //Lord of the Lost 19 24
+                //Lord of the Lost
                 almacenPista.add({ id: 73, nombre: "Last Words", archivo: "/", idAlbum: 19 });
                 almacenPista.add({ id: 74, nombre: "Break Your Heart", archivo: "/", idAlbum: 19 });
                 almacenPista.add({ id: 75, nombre: "Dry The Rain", archivo: "/", idAlbum: 19 });
@@ -353,7 +305,7 @@
                 almacenPista.add({ id: 94, nombre: "Loreley", archivo: "/", idAlbum: 24 });
                 almacenPista.add({ id: 95, nombre: "Black Halo", archivo: "/", idAlbum: 24 });
                 almacenPista.add({ id: 96, nombre: "In Our Hands", archivo: "/", idAlbum: 24 });
-                //Jinjer 25 28
+                //Jinjer
                 almacenPista.add({ id: 97, nombre: "Until The End", archivo: "/", idAlbum: 25 });
                 almacenPista.add({ id: 98, nombre: "Waltz", archivo: "/", idAlbum: 25 });
                 almacenPista.add({ id: 99, nombre: "Scissors", archivo: "/", idAlbum: 25 });
@@ -370,7 +322,7 @@
                 almacenPista.add({ id: 110, nombre: "Pit Of Consciousness", archivo: "/", idAlbum: 28 });
                 almacenPista.add({ id: 111, nombre: "Judgement (& Punishment)", archivo: "/", idAlbum: 28 });
                 almacenPista.add({ id: 112, nombre: "Retrospection", archivo: "/", idAlbum: 28 });
-                //La Raíz 29 34
+                //La Raíz
                 almacenPista.add({ id: 113, nombre: "Intro", archivo: "/", idAlbum: 29 });
                 almacenPista.add({ id: 114, nombre: "Malos Tiempos", archivo: "/", idAlbum: 29 });
                 almacenPista.add({ id: 115, nombre: "Pobre Manuel", archivo: "/", idAlbum: 29 });
@@ -391,7 +343,7 @@
                 almacenPista.add({ id: 130, nombre: "Entre Poetas y Presos", archivo: "/", idAlbum: 33 });
                 almacenPista.add({ id: 131, nombre: "Borracha y Callejera", archivo: "/", idAlbum: 33 });
                 almacenPista.add({ id: 132, nombre: "La Voz", archivo: "/", idAlbum: 33 });
-                //Extremoduro 34 44
+                //Extremoduro
                 almacenPista.add({ id: 133, nombre: "Extremaydura", archivo: "/", idAlbum: 34 });
                 almacenPista.add({ id: 134, nombre: "Emparedado", archivo: "/", idAlbum: 34 });
                 almacenPista.add({ id: 135, nombre: "Decidí", archivo: "/", idAlbum: 34 });
@@ -434,12 +386,12 @@
                 almacenPista.add({ id: 172, nombre: "¡Qué Borde Era Mi Valle!", archivo: "/", idAlbum: 44 });
                 almacenPista.add({ id: 173, nombre: "Poema Sobrecogido", archivo: "/", idAlbum: 44 });
 
-                /**** Tabla almacenLista ****/
-                almacenLista = bd.createObjectStore("lista", { keyPath: "id", autoIncrement: true });
+                /*************** LISTA *************/
+                almacenLista = transaccion.objectStore("lista");
                 almacenLista.add({ id: 1, nombre: "Desakato - Favoritas", fecha: "2020", idAutor: 1 });
 
-                /**** Tabla almacenPistaLista ****/
-                almacenPistaLista = bd.createObjectStore("pistaLista", { keyPath: ["idPista", "idLista"] });
+                /*************** PISTA_LISTA *************/
+                almacenPistaLista = transaccion.objectStore("pistaLista");
                 almacenPistaLista.add({ idPista: 5, idLista: 1 });
                 almacenPistaLista.add({ idPista: 7, idLista: 1 });
                 almacenPistaLista.add({ idPista: 8, idLista: 1 });
@@ -452,10 +404,50 @@
                 almacenPistaLista.add({ idPista: 22, idLista: 1 });
                 almacenPistaLista.add({ idPista: 23, idLista: 1 });
                 almacenPistaLista.add({ idPista: 25, idLista: 1 });
+            };
 
-                /***************************/
+            peticion.onerror = function (evento) {
+                alert("No se ha creado la base de datos: " + event.target.errorCode);
+            };
+
+            peticion.onupgradeneeded = function (evento) {
+                //Escribir el código para crear o modificar la estructura de la BD (DDL)
+                //Recordatorio: Este evento sólo se ejecuta si se abre la base de datos con una versión nueva superior
+
+                mensaje("EVENTO: upgradedneeded\nSe modifica la versión o es nueva");
+                bd = peticion.result;
+
+                /***** Tabla almacenAutor *****/
+                almacenAutor = bd.createObjectStore("autor", { keyPath: "id", autoIncrement: true });
+
+                /***** Tabla almacenGenero *****/
+                almacenGenero = bd.createObjectStore("genero", { keyPath: "id", autoIncrement: true });
+
+                /***** Tabla almacenAutorGenero *****/
+                almacenAutorGenero = bd.createObjectStore("autorGenero", { keyPath: ["idAutor", "idGenero"] });
+
+                /***** Tabla almacenConcierto *****/
+                almacenConcierto = bd.createObjectStore("concierto", { keyPath: "id", autoIncrement: true });
+
+                /***** Tabla almacenAutorConcierto *****/
+                almacenAutorConcierto = bd.createObjectStore("autorConcierto", { keyPath: ["idAutor", "idConcierto"] });
+
+                /**** Tabla almacenAlbum ****/
+                almacenAlbum = bd.createObjectStore("album", { keyPath: "id", autoIncrement: true });
+
+                /***** Tabla almacenAutorAlbum *****/
+                almacenAutorAlbum = bd.createObjectStore("autorAlbum", { keyPath: ["idAutor", "idAlbum"] });
+
+                /**** Tabla almacenPista *****/
+                almacenPista = bd.createObjectStore("pista", { keyPath: "id", autoIncrement: true });
+
+                /**** Tabla almacenLista ****/
+                almacenLista = bd.createObjectStore("lista", { keyPath: "id", autoIncrement: true });
+
+                /**** Tabla almacenPistaLista ****/
+                almacenPistaLista = bd.createObjectStore("pistaLista", { keyPath: ["idPista", "idLista"] });
+
                 /********* ÍNDICES *********/
-                /***************************/
                 mensaje("SE CREAN LOS ÍNDICES");
 
                 almacenAutor.createIndex("por_id", "id", { unique: true });
@@ -503,7 +495,6 @@
                 almacenPistaLista.createIndex("por_idPista", "idPista");
                 almacenPistaLista.createIndex("por_idLista", "idLista");
             };
-
         }
     </script>
 </body>
