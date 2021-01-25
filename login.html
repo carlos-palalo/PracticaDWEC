@@ -6,51 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Práctica DWEC</title>
     <link rel="stylesheet" type="text/css" href="css/login.css">
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <form id="login">
+        <div id="login">
             <div class="titulo">Bienvenido,</div>
             <div id="inicio">
                 <div class="input-field">
-                    <input placeholder="Email*" name="email" type="email" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
+                    <input id="email-l" placeholder="Email*" name="email" type="email" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
                         title='Formato válido: email@ejemplo.com' required>
                 </div>
                 <div class="input-field">
-                    <input name="password" type="password" placeholder="Contraseña*" required>
+                    <input id="pass-l" name="password" type="password" placeholder="Contraseña*" required>
                 </div>
                 <button id="btn-iniciar">Iniciar sesión</button>
             </div>
             <button id="btn-ini">Iniciar sesión</button>
-        </form>
+        </div>
         <hr>
-        <form id="register">
+        <div id="register">
             <div class="titulo">Soy nuevo/a,</div>
             <div id="registro">
                 <div class="input-field">
-                    <input placeholder="Nombre*" name="username-r" type="text" required>
+                    <input id="user-r" placeholder="Nombre*" name="username-r" type="text" required>
                 </div>
                 <div class="input-field">
-                    <input placeholder="Email*" name="correo-r" type="email" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
+                    <input id="email-r" placeholder="Email*" name="correo-r" type="email" pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
                         title='Formato válido: email@ejemplo.com' required>
                 </div>
                 <div class="input-field">
-                    <input placeholder="Contraseña*" name="password-r" type="password"
+                    <input id="pass-r" placeholder="Contraseña*" name="password-r" type="password"
                         pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
                         title="La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula."
                         required>
                 </div>
                 <div class="input-field">
-                    <input id="confirmacion" placeholder="Confirme la contraseña">
+                    <input id="confirm-r" placeholder="Confirme la contraseña">
                 </div>
                 <p>Al crear una cuenta, aceptas los <a href="#">términos y condiciones</a> y <a href="#">la política
                         de privacidad</a></p>
                 <button id="btn-registro">Registrarse</button>
-            </div>
+                </div>
             <button id="btn-reg">Registrarse</button>
-        </form>
+        </div>
     </div>
 </body>
 
