@@ -1,0 +1,48 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(38, 42, 66);
+}
+.container {
+    background-color: white;
+    width: 350px;
+    text-align: center;
+    box-shadow: 1px 1px 5px 1px white;
+}
+
+.titulo{
+    font-size: x-large;
+    font-weight: 600;
+    margin: 20px 10px;
+}
+.input-field input,
+button {
+    width: 200px;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    font-size: medium;
+}
+
+button {
+    width: 215px;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+}
+button:hover {
+    color: white;
+    background-color: black;
+}
+#inicio {
+}
+#registro {
+    display: block;
+}

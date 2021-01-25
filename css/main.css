@@ -14,8 +14,10 @@
 }
 
 @media screen and (min-width:1080px) {
-    .album-info{
+    .album-info div{
         max-width: 175px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
     .album-img {
         width: 175px;
@@ -25,6 +27,11 @@
 }
 
 @media screen and (max-width:1079px) {
+    .album-info div{
+        width: 125px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
     .album-img {
         width: 125px;
         height: 125px;
