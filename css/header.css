@@ -1,0 +1,67 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    background-color: #131313;
+}
+
+header .container, .container .left, .container .right {
+    display: flex;
+}
+
+header .container a {
+    text-decoration: none;
+    padding: 15px;
+    color: white;
+}
+
+header .container a:hover {
+    background-color: grey;
+}
+
+#search form {
+    display: flex;
+    padding: 10px;
+}
+
+#search input {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#search button {
+    background-color: #131313;
+    color: white;
+    border: none;
+    margin-left: 5px;
+    border-radius: 50px;
+}
+
+#search button:hover {
+    background-color: gainsboro;
+    color: black;
+    box-shadow: 0 1px 8px 0px red;
+}
+
+#search button span {
+    font-size: 22px;
+    padding: 5px;
+}
+
+.right {
+    margin-left: auto;
+}
+
+@media screen and (min-width:1080px) {
+    .container {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    body {
+        background-color: gainsboro;
+    }
+}
