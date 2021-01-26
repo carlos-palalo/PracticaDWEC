@@ -1,11 +1,16 @@
 function codigo() {
-    var inicio = document.getElementById("inicio");
-    var registro = document.getElementById("registro");
+
+    if (localStorage.getItem("idUser") != undefined) {
+        window.location.href = "index.html";
+    }
+
     var btn_ini = document.getElementById("btn-ini");
     var btn_reg = document.getElementById("btn-reg");
+    var inicio = document.getElementById("inicio");
+    var registro = document.getElementById("registro");
 
-    document.getElementById("btn-iniciar").addEventListener("click", login);
-    document.getElementById("btn-registro").addEventListener("click", login);
+    document.getElementById("btn-iniciar").addEventListener("click", loginRegister);
+    document.getElementById("btn-registro").addEventListener("click", loginRegister);
 
     btn_ini.addEventListener("click", function () {
         inicio.style.display = "block";
@@ -20,44 +25,50 @@ function codigo() {
         registro.style.display = "block";
         btn_reg.style.display = "none";
     });
+
+
 }
-
-function login(e) {
-    var email_l = document.getElementById("email-l").value;     //Variables Login
-    var pass_l = document.getElementById("pass-l").value;
-
-    var user_r = document.getElementById("user-r").value;       //Variables Register
-    var email_r = document.getElementById("email-r").value;
+function loginRegister(e) {
     var pass_r = document.getElementById("pass-r").value;
-    var confirm_r = document.getElementById("pass-r").value;
+    var confirm_r = document.getElementById("confirm-r").value;
 
-    var peticion;
-
-    if (window.indexedDB) {
+    if (confirm_r != pass_r) {
+        alert("Las contraseñas deben de coincidir");
+    } else if (window.indexedDB) {
         peticion = window.indexedDB.open("musica");
 
         peticion.onsuccess = function (evento) {
-            console.log("Success");
+            console.log("Sucess");
 
             var bd = evento.target.result;
-
             var transaccion = bd.transaction(bd.objectStoreNames, "readwrite");
             var almacenAutores = transaccion.objectStore("autor");
+            var peticionCursor = almacenAutores.openCursor();
 
-            switch (e.target.id) {
-                case "btn-iniciar":
-                    buscar(email_l, pass_l, almacenAutores);
-                    break;
-                case "btn-registro":
-                    buscar(email_r, pass_r, almacenAutores);
-                    localStorage.removeItem("user");
-                    if (localStorage.getItem("user") != undefined) {
-                        console.log("El usuario ya está en la base de datos");
-                        alert("Usuario ya registrado");
+            peticionCursor.onsuccess = function () {
+                var cursor = peticionCursor.result;
+                if (cursor) {
+                    switch (e.target.id) {
+                        case "btn-iniciar":
+                            login(cursor.value);
+                            break;
+                        case "btn-registro":
+                            var aux = comprobar(cursor.value);
+                            if (aux)
+                                return;
+
+                            break;
                     }
-                    break;
+                    cursor.continue(); //continue incrementa el cursor una posición
+                } else {
+                    if (e.target.id == "btn-registro") {
+                        register(almacenAutores);
+                    }
+                    console.log("FIN");
+                }
             }
-        }
+            console.log("Login incorrecto");
+        };
 
         peticion.onerror = function (evento) {
             alert("No se ha creado la base de datos: " + evento.target.errorCode);
@@ -66,34 +77,48 @@ function login(e) {
         console.log("IndexedDB no está soportado");
     }
 }
-function buscar(email, pass, almacenAutores) {
-    var peticionGetAll = almacenAutores.getAll();
 
-    peticionGetAll.onsuccess = function () {    //Recorro el almacen de autores de la bd y busco el usuario
-        var valores = peticionGetAll.result;
+function login(autor) {
+    var email_l = document.getElementById("email-l").value;
+    var pass_l = document.getElementById("pass-l").value;
+
+    if (autor.email == email_l && autor.password == pass_l) {
+        console.log("Login Correcto!");
+        localStorage.setItem("user", autor.nombre);
+        localStorage.setItem("idUser", autor.id);
+        window.location.href = "index.html";
+    }
+}
+function comprobar(autor) {
+    var email_r = document.getElementById("email-r").value;
+    if (autor.email == email_r) {
+        alert("Ya existe un usuario con ese email");
+        return true;
+    }
+}
+function register(almacen) {
+    var nuevoAutor = {};
+    var email_r = document.getElementById("email-r").value
+    nuevoAutor.nombre = document.getElementById("user-r").value;
+    nuevoAutor.email = email_r;
+    nuevoAutor.password = document.getElementById("pass-r").value;
+    nuevoAutor.fecha_creacion = new Date().toLocaleDateString();
+    console.log(nuevoAutor);
+    almacen.add(nuevoAutor);
+
+    var peticion = almacen.getAll();
+
+    peticion.onsuccess = function () {
+        var valores = peticion.result;
 
         for (autor in valores) {
-            if (valores[autor].email == email && valores[autor].password == pass) {   //Si encuentro el usuario, me logueo
-                console.log("Esta");
-                window.localStorage.setItem("user", valores[autor].nombre);
+            if (valores[autor].email == email_r) {
+                localStorage.setItem("user", valores[autor].nombre);
+                localStorage.setItem("idUser", valores[autor].id);
+                window.location.href = "index.html";
             }
         }
     }
-}
-
-function register() {
-    var transaccionInsertar = bd.transaction(bd.objectStoreNames, "readwrite");
-    var almacenInsertar = transaccionInsertar.objectStore("autor");
-    var nuevoLibro = {};
-
-    nuevoLibro.isbn = parseInt(document.getElementById("isbn").value);
-    nuevoLibro.titulo = document.getElementById("titulo").value;
-    nuevoLibro.autor = document.getElementById("autor").value;
-    nuevoLibro.editorial = document.getElementById("editorial").value;
-    nuevoLibro.paginas = parseInt(document.getElementById("paginas").value);
-    nuevoLibro.precio = parseInt(document.getElementById("precio").value);
-
-    almacenInsertar.add(nuevoLibro);
 }
 
 window.onload = codigo;

@@ -2,6 +2,7 @@
     padding: 0px;
     margin: 0px;
 }
+
 body {
     height: 100vh;
     display: flex;
@@ -10,6 +11,7 @@ body {
     flex-direction: column;
     background-color: rgb(38, 42, 66);
 }
+
 .container {
     padding: 30px 0px;
     background-color: white;
@@ -22,13 +24,17 @@ body {
     margin: 0 auto;
 }
 
+.container button {
+    margin: 0 auto;
+}
+
 .titulo {
     font-size: x-large;
     font-weight: 600;
     margin: 20px 10px 20px;
 }
-.input-field input,
-button {
+
+.input-field input, button {
     width: 200px;
     text-align: center;
     padding: 5px;
@@ -38,23 +44,46 @@ button {
 
 button {
     width: 215px;
-    border: 2px solid black;
+    border: 3px solid black;
+    font-weight: 700;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.bg-black {
+    background-color: black;
+    color: white;
+}
+
+.bg-black:hover {
     background-color: white;
     color: black;
 }
-button:hover {
-    color: white;
-    background-color: black;
+
+.bg-white {
+    background-color: white;
+    color: black;
 }
-#registro,
-#btn-ini {
+
+.bg-white:hover {
+    background-color: black;
+    color: white;
+}
+
+#registro, #btn-ini {
     display: none;
 }
 
-p{
+p {
     margin-bottom: 20px;
 }
 
-hr{
+hr {
     margin-top: 25px;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
 }
