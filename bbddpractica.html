@@ -41,12 +41,12 @@
 
                 /*************** AUTORES *************/
                 almacenAutor = transaccion.objectStore("autor");
-                almacenAutor.add({ id: 1, nombre: "Desakato", email: "desakato@gmail.com", password: "desakato", fecha_creacion: "2020", origen: "Asturias, España", foto_perfil: "/", fondo_perfil: "/" });
-                almacenAutor.add({ id: 2, nombre: "Mono Inc.", email: "monoinc@gmail.com", password: "monoinc", fecha_creacion: "2020", origen: "Hamburgo, Alemania", foto_perfil: "/", fondo_perfil: "/" });
-                almacenAutor.add({ id: 3, nombre: "Lord of the Lost", email: "lordofthelost@gmail.com", password: "lordofthelost", fecha_creacion: "2020", origen: "Hamburgo, Alemania", foto_perfil: "/", fondo_perfil: "/" });
-                almacenAutor.add({ id: 4, nombre: "Jinjer", email: "jinjer@gmail.com", password: "jinjer", fecha_creacion: "2020", origen: "Ucrania", foto_perfil: "/", fondo_perfil: "/" });
-                almacenAutor.add({ id: 5, nombre: "La Raíz", email: "laraiz@gmail.com", password: "laraiz", fecha_creacion: "2020", origen: "Valencia, España", foto_perfil: "/", fondo_perfil: "/" });
-                almacenAutor.add({ id: 6, nombre: "Extremoduro", email: "extremoduro@gmail.com", password: "extremoduro", fecha_creacion: "2020", origen: "Cáceres, España", foto_perfil: "/", fondo_perfil: "/" });
+                almacenAutor.add({ id: 1, nombre: "Desakato", email: "desakato@gmail.com", password: "Desakato1", fecha_creacion: "2020", origen: "Asturias, España", foto_perfil: "/", fondo_perfil: "/" });
+                almacenAutor.add({ id: 2, nombre: "Mono Inc.", email: "monoinc@gmail.com", password: "Monoinc1", fecha_creacion: "2020", origen: "Hamburgo, Alemania", foto_perfil: "/", fondo_perfil: "/" });
+                almacenAutor.add({ id: 3, nombre: "Lord of the Lost", email: "lordofthelost@gmail.com", password: "Lordofthelost1", fecha_creacion: "2020", origen: "Hamburgo, Alemania", foto_perfil: "/", fondo_perfil: "/" });
+                almacenAutor.add({ id: 4, nombre: "Jinjer", email: "jinjer@gmail.com", password: "Jinjer1", fecha_creacion: "2020", origen: "Ucrania", foto_perfil: "/", fondo_perfil: "/" });
+                almacenAutor.add({ id: 5, nombre: "La Raíz", email: "laraiz@gmail.com", password: "Laraiz1", fecha_creacion: "2020", origen: "Valencia, España", foto_perfil: "/", fondo_perfil: "/" });
+                almacenAutor.add({ id: 6, nombre: "Extremoduro", email: "extremoduro@gmail.com", password: "Extremoduro1", fecha_creacion: "2020", origen: "Cáceres, España", foto_perfil: "/", fondo_perfil: "/" });
 
                 /*************** GENERO *************/
                 almacenGenero = transaccion.objectStore("genero");
@@ -452,7 +452,7 @@
 
                 almacenAutor.createIndex("por_id", "id", { unique: true });
                 almacenAutor.createIndex("por_nombre", "nombre");
-                almacenAutor.createIndex("por_email", "email");
+                almacenAutor.createIndex("por_email", "email", { unique: true });
                 almacenAutor.createIndex("por_password", "password");
                 almacenAutor.createIndex("por_fecha_creacion", "fecha_creacion");
                 almacenAutor.createIndex("por_origen", "origen");
