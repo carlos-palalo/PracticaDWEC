@@ -6,7 +6,14 @@
 
 header {
     width: 100%;
-    background-color: #131313;
+    background-color: #15192c;
+    position: fixed;
+    box-shadow: 0px 3px 8px 0px black;
+    z-index: 1;
+}
+
+header .container {
+    font-size: 22px;
 }
 
 header .container, .container .left, .container .right {
@@ -17,10 +24,12 @@ header .container a {
     text-decoration: none;
     padding: 15px;
     color: white;
+    transition: 1s;
+    font-weight: 700;
 }
 
 header .container a:hover {
-    background-color: grey;
+    background-color: #131212;
 }
 
 #search form {
@@ -30,26 +39,33 @@ header .container a:hover {
 
 #search input {
     padding-left: 10px;
+    width: 225px;
     padding-right: 10px;
+    box-shadow: 1px 1px 3px 1px whitesmoke;
+    border: none;
 }
 
 #search button {
-    background-color: #131313;
-    color: white;
+    background-color: white;
+    color: black;
     border: none;
     margin-left: 5px;
-    border-radius: 50px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    box-shadow: 1px 1px 3px 1px whitesmoke;
 }
 
 #search button:hover {
-    background-color: gainsboro;
+    background-color: whitesmoke;
     color: black;
-    box-shadow: 0 1px 8px 0px red;
 }
 
 #search button span {
     font-size: 22px;
-    padding: 5px;
+    padding: 6px;
 }
 
 .right {

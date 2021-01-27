@@ -9,6 +9,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+main {
+    margin-top: 50px;
+}
+
 .container .left, .container .right, .container-song, .song {
     display: flex;
 }
@@ -25,7 +29,6 @@ main .container {
     background-color: grey;
     display: flex;
     padding: 25px;
-    position: sticky;
 }
 
 .container-artist .img {
