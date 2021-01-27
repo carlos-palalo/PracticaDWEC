@@ -30,6 +30,7 @@ header .container a {
 
 header .container a:hover {
     background-color: #131212;
+    color: orangered;
 }
 
 #search form {
@@ -50,22 +51,19 @@ header .container a:hover {
     color: black;
     border: none;
     margin-left: 5px;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
     box-shadow: 1px 1px 3px 1px whitesmoke;
 }
 
 #search button:hover {
     background-color: whitesmoke;
     color: black;
+    cursor: pointer;;
 }
 
 #search button span {
-    font-size: 22px;
-    padding: 6px;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 6px 8px;
 }
 
 .right {
