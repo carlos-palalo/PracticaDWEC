@@ -3,18 +3,25 @@ function inicio() {
     var nodoHead = document.getElementById("head");
     if (localStorage.getItem("idUser") != undefined && localStorage.getItem("idUser") != "") {
         var nodoEnlace = document.createElement("a");
-        nodoEnlace.href="cuenta.html";
-        
+        //nodoEnlace.href = "cuenta.html";
+        nodoEnlace.href = "";
+
         var texto = document.createTextNode(localStorage.getItem("user"));
-        
+
         nodoEnlace.appendChild(texto);
+
+        nodoEnlace.addEventListener("click", function () {
+            localStorage.removeItem("user");
+            localStorage.removeItem("idUser");
+        });
+
         nodoHead.appendChild(nodoEnlace);
-    }else{
+    } else {
         var nodoEnlace = document.createElement("a");
-        nodoEnlace.href ="login.html";
-        
+        nodoEnlace.href = "login.html";
+
         var texto = document.createTextNode("Iniciar Sesión");
-        
+
         nodoEnlace.appendChild(texto);
         nodoHead.appendChild(nodoEnlace);
     }
@@ -141,7 +148,7 @@ function crearLista(jsonAlbum, jsonAutor, jsonAutorAlbum) {
 
                         var enlaceImg = document.createElement("a");
                         enlaceImg.href = "album.html";
-                        
+
                         var nodoImgAlbum = document.createElement("div");
                         nodoImgAlbum.className = "album-img";
 
@@ -161,7 +168,7 @@ function crearLista(jsonAlbum, jsonAutor, jsonAutorAlbum) {
 
                         var nodoArtist = document.createElement("div");
                         nodoArtist.className = "artist-name";
-                        
+
                         var enlaceArtist = document.createElement("a");
                         enlaceArtist.href = "artist.html";
                         var nodoTexto = document.createTextNode(z.nombre);
@@ -172,7 +179,7 @@ function crearLista(jsonAlbum, jsonAutor, jsonAutorAlbum) {
 
                         var nodoName = document.createElement("div");
                         nodoName.className = "album-name";
-                        
+
                         var enlaceAlbum = document.createElement("a");
                         enlaceAlbum.href = "album.html";
                         var nodoTexto = document.createTextNode(y.nombre);

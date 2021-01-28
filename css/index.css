@@ -96,3 +96,19 @@ main .container {
 .artist-name a:hover, .album-name a:hover {
     color: orangered;
 }
+
+footer{
+    position: sticky;
+    text-align: center;
+}
+footer .container{
+    background-color: white;
+    padding: 0px 200px;
+}
+footer .container div{
+    border-top: 1px solid gainsboro;
+    padding: 40px;
+    color: gray;
+    font-weight: 500;
+    font-style: italic;
+}   
