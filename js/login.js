@@ -47,11 +47,13 @@ function loginRegister(e) {
 
             peticionCursor.onsuccess = function () {
                 var cursor = peticionCursor.result;
+                var auxl = false;
+
                 if (cursor) {
                     switch (e.target.id) {
                         case "btn-iniciar":
-                            var aux = login(cursor.value);
-                            if (aux) {
+                            auxl = login(cursor.value);
+                            if (auxl) {
                                 alert("Login Correcto");
                                 window.location.href = "index.html";
                             }
@@ -68,9 +70,10 @@ function loginRegister(e) {
                 } else {
                     if (e.target.id == "btn-registro") {
                         register(almacenAutores);
-                    } else {
-                        alert("Login Incorrecto");
                     }
+                    /*if (localStorage.getItem("idUser") == undefined) {
+                        alert("Login Incorrecto");
+                    }*/
                     console.log("FIN");
                 }
             }
