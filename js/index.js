@@ -1,5 +1,23 @@
 function inicio() {
     cargarAlbum();
+    var nodoHead = document.getElementById("head");
+    if (localStorage.getItem("idUser") != undefined && localStorage.getItem("idUser") != "") {
+        var nodoEnlace = document.createElement("a");
+        nodoEnlace.href="cuenta.html";
+        
+        var texto = document.createTextNode(localStorage.getItem("user"));
+        
+        nodoEnlace.appendChild(texto);
+        nodoHead.appendChild(nodoEnlace);
+    }else{
+        var nodoEnlace = document.createElement("a");
+        nodoEnlace.href ="login.html";
+        
+        var texto = document.createTextNode("Iniciar Sesión");
+        
+        nodoEnlace.appendChild(texto);
+        nodoHead.appendChild(nodoEnlace);
+    }
 }
 
 function cargarAlbum() {

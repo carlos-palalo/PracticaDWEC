@@ -1,6 +1,6 @@
 function codigo() {
 
-    if (localStorage.getItem("idUser") != undefined) {
+    if (localStorage.getItem("idUser") != undefined && localStorage.getItem("idUser") != "") {
         window.location.href = "index.html";
     }
 
@@ -50,24 +50,30 @@ function loginRegister(e) {
                 if (cursor) {
                     switch (e.target.id) {
                         case "btn-iniciar":
-                            login(cursor.value);
+                            var aux = login(cursor.value);
+                            if (aux) {
+                                alert("Login Correcto");
+                                window.location.href = "index.html";
+                            }
                             break;
                         case "btn-registro":
                             var aux = comprobar(cursor.value);
-                            if (aux)
+                            if (aux) {
+                                alert("Ya existe un usuario con ese email");
                                 return;
-
+                            }
                             break;
                     }
                     cursor.continue(); //continue incrementa el cursor una posición
                 } else {
                     if (e.target.id == "btn-registro") {
                         register(almacenAutores);
+                    } else {
+                        alert("Login Incorrecto");
                     }
                     console.log("FIN");
                 }
             }
-            console.log("Login incorrecto");
         };
 
         peticion.onerror = function (evento) {
@@ -86,13 +92,12 @@ function login(autor) {
         console.log("Login Correcto!");
         localStorage.setItem("user", autor.nombre);
         localStorage.setItem("idUser", autor.id);
-        window.location.href = "index.html";
+        return true;
     }
 }
 function comprobar(autor) {
     var email_r = document.getElementById("email-r").value;
     if (autor.email == email_r) {
-        alert("Ya existe un usuario con ese email");
         return true;
     }
 }
@@ -115,6 +120,7 @@ function register(almacen) {
             if (valores[autor].email == email_r) {
                 localStorage.setItem("user", valores[autor].nombre);
                 localStorage.setItem("idUser", valores[autor].id);
+                alert("Registro correcto");
                 window.location.href = "index.html";
             }
         }
