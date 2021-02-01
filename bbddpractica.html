@@ -95,7 +95,7 @@
 
                 /*************** CONCIERTO *************/
                 almacenConcierto = transaccion.objectStore("concierto");
-                almacenConcierto.add({ id: 1, nombre: "Viñarock", latitud: "/", longitud: "/", fecha: "2020" });
+                almacenConcierto.add({ id: 1, nombre: "Viñarock", latitud: "/", longitud: "/", fecha: new Date().toLocaleDateString() });
 
                 /*************** AUTOR_CONCIERTO *************/
                 almacenAutorConcierto = transaccion.objectStore("autorConcierto");
@@ -384,7 +384,7 @@
 
                 /*************** LISTA *************/
                 almacenLista = transaccion.objectStore("lista");
-                almacenLista.add({ id: 1, nombre: "Desakato - Favoritas", fecha: "2020", idAutor: 1 });
+                almacenLista.add({ id: 1, nombre: "Desakato - Favoritas", fecha: new Date().toLocaleDateString(), idAutor: 1 });
 
                 /*************** PISTA_LISTA *************/
                 almacenPistaLista = transaccion.objectStore("pistaLista");

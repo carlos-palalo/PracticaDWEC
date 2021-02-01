@@ -118,8 +118,8 @@ function cargarAutorAlbum(jsonAlbum, jsonAutor) {
                     cursorAutorAlbum.continue(); //continue incrementa el cursor una posición
                 } else {
                     //console.log("JSON AutorAlbum: " + jsonAutorAlbum);
-                    console.log("FIN AutorAlbum");
                     crearLista(jsonAlbum, jsonAutor, jsonAutorAlbum);
+                    console.log(jsonAlbum);
                     //localStorage.setItem("jsonAutorAlbum", jsonAutorAlbum);
                 }
             }
@@ -130,6 +130,7 @@ function cargarAutorAlbum(jsonAlbum, jsonAutor) {
     } else {
         console.log("IndexedDB no está soportado");
     }
+    console.log(jsonAlbum[0]);
 }
 
 function crearLista(jsonAlbum, jsonAutor, jsonAutorAlbum) {
