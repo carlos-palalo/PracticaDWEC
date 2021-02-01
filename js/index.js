@@ -1,5 +1,4 @@
 function inicio() {
-    cargarAlbum();
     var nodoHead = document.getElementById("head");
     if (localStorage.getItem("idUser") != undefined && localStorage.getItem("idUser") != "") {
         var nodoEnlace = document.createElement("a");
@@ -25,112 +24,8 @@ function inicio() {
         nodoEnlace.appendChild(texto);
         nodoHead.appendChild(nodoEnlace);
     }
-}
 
-function cargarAlbum() {
-    var jsonAlbum = [];
-    if (window.indexedDB) {
-        peticion = window.indexedDB.open("musica");
-
-        peticion.onsuccess = function (evento) {
-            console.log("Sucess");
-
-            var bd = evento.target.result;
-            var transaccion = bd.transaction(bd.objectStoreNames, "readwrite");
-            var almacenAlbum = transaccion.objectStore("album");
-
-            var peticionAlbum = almacenAlbum.openCursor();
-            peticionAlbum.onsuccess = function () {
-                var cursorAlbum = peticionAlbum.result;
-
-                if (cursorAlbum) {
-                    jsonAlbum.push(cursorAlbum.value);
-                    cursorAlbum.continue(); //continue incrementa el cursor una posición
-                } else {
-                    //console.log("JSON Album: " + jsonAlbum);
-                    console.log("FIN Album");
-                    cargarAutor(jsonAlbum);
-                    //localStorage.setItem("jsonAlbum", jsonAlbum);
-                }
-            }
-        };
-        peticion.onerror = function (evento) {
-            alert("No se ha creado la base de datos: " + evento.target.errorCode);
-        };
-    } else {
-        console.log("IndexedDB no está soportado");
-    }
-}
-
-function cargarAutor(jsonAlbum) {
-    var jsonAutor = [];
-    if (window.indexedDB) {
-        peticion = window.indexedDB.open("musica");
-
-        peticion.onsuccess = function (evento) {
-            console.log("Sucess");
-
-            var bd = evento.target.result;
-            var transaccion = bd.transaction(bd.objectStoreNames, "readwrite");
-            var almacenAutor = transaccion.objectStore("autor");
-
-            var peticionAutor = almacenAutor.openCursor();
-            peticionAutor.onsuccess = function () {
-                var cursorAutor = peticionAutor.result;
-
-                if (cursorAutor) {
-                    jsonAutor.push({ "id": cursorAutor.value.id, "nombre": cursorAutor.value.nombre });
-                    cursorAutor.continue(); //continue incrementa el cursor una posición
-                } else {
-                    //console.log("JSON Autor: " + jsonAutor);
-                    console.log("FIN Autor");
-                    cargarAutorAlbum(jsonAlbum, jsonAutor);
-                    //localStorage.setItem("jsonAutor", jsonAutor);
-                }
-            }
-        };
-        peticion.onerror = function (evento) {
-            alert("No se ha creado la base de datos: " + evento.target.errorCode);
-        };
-    } else {
-        console.log("IndexedDB no está soportado");
-    }
-}
-
-function cargarAutorAlbum(jsonAlbum, jsonAutor) {
-    var jsonAutorAlbum = [];
-    if (window.indexedDB) {
-        peticion = window.indexedDB.open("musica");
-
-        peticion.onsuccess = function (evento) {
-            console.log("Sucess");
-
-            var bd = evento.target.result;
-            var transaccion = bd.transaction(bd.objectStoreNames, "readwrite");
-            var almacenAutorAlbum = transaccion.objectStore("autorAlbum");
-
-            var peticionAutorAlbum = almacenAutorAlbum.openCursor();
-            peticionAutorAlbum.onsuccess = function () {
-                var cursorAutorAlbum = peticionAutorAlbum.result;
-
-                if (cursorAutorAlbum) {
-                    jsonAutorAlbum.push(cursorAutorAlbum.value);
-                    cursorAutorAlbum.continue(); //continue incrementa el cursor una posición
-                } else {
-                    //console.log("JSON AutorAlbum: " + jsonAutorAlbum);
-                    crearLista(jsonAlbum, jsonAutor, jsonAutorAlbum);
-                    console.log(jsonAlbum);
-                    //localStorage.setItem("jsonAutorAlbum", jsonAutorAlbum);
-                }
-            }
-        };
-        peticion.onerror = function (evento) {
-            alert("No se ha creado la base de datos: " + evento.target.errorCode);
-        };
-    } else {
-        console.log("IndexedDB no está soportado");
-    }
-    console.log(jsonAlbum[0]);
+    
 }
 
 function crearLista(jsonAlbum, jsonAutor, jsonAutorAlbum) {
