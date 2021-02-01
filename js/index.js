@@ -18,14 +18,17 @@ function inicio() {
     } else {
         var nodoEnlace = document.createElement("a");
         nodoEnlace.href = "login.html";
-
+        
         var texto = document.createTextNode("Iniciar Sesión");
 
         nodoEnlace.appendChild(texto);
         nodoHead.appendChild(nodoEnlace);
     }
-
-    
+    var objAlbum=cargar("album");
+    var objAutor=cargar("autor");
+    var objAutorAlbum=cargar("autorAlbum");
+    console.log(objAutorAlbum);
+    crearLista(objAlbum,objAutor,objAutorAlbum);
 }
 
 function crearLista(jsonAlbum, jsonAutor, jsonAutorAlbum) {

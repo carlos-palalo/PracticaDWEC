@@ -2,7 +2,7 @@ function cargar(nombre) {
     var json = [];
     if (window.indexedDB) {
         peticion = window.indexedDB.open("musica");
-
+        
         peticion.onsuccess = function (evento) {
             console.log("Sucess");
 
@@ -13,9 +13,10 @@ function cargar(nombre) {
             var peticion = almacen.openCursor();
             peticion.onsuccess = function () {
                 var cursor = peticion.result;
-
                 if (cursor) {
                     json.push(cursor.value);
+                    console.log(peticion.result.value);
+
                     cursor.continue(); //continue incrementa el cursor una posición
                 } else {
                     console.log("FIN Carga");
