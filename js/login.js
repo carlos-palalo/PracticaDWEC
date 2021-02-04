@@ -93,7 +93,7 @@ function login(autor) {
 
     if (autor.email == email_l && autor.password == pass_l) {
         console.log("Login Correcto!");
-        localStorage.setItem("user", autor.nombre);
+        localStorage.setItem("user", autor.autor);
         localStorage.setItem("idUser", autor.id);
         return true;
     }
@@ -107,7 +107,7 @@ function comprobar(autor) {
 function register(almacen) {
     var nuevoAutor = {};
     var email_r = document.getElementById("email-r").value
-    nuevoAutor.nombre = document.getElementById("user-r").value;
+    nuevoAutor.autor = document.getElementById("user-r").value;
     nuevoAutor.email = email_r;
     nuevoAutor.password = document.getElementById("pass-r").value;
     nuevoAutor.fecha_creacion = new Date().toLocaleDateString();
@@ -121,7 +121,7 @@ function register(almacen) {
 
         for (autor in valores) {
             if (valores[autor].email == email_r) {
-                localStorage.setItem("user", valores[autor].nombre);
+                localStorage.setItem("user", valores[autor].autor);
                 localStorage.setItem("idUser", valores[autor].id);
                 alert("Registro correcto");
                 window.location.href = "index.html";

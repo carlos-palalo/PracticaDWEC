@@ -1,25 +1,24 @@
-function cargar(nombre) {
-    var json = [];
+function cargar(tabla) {
     if (window.indexedDB) {
         peticion = window.indexedDB.open("musica");
-        
+
         peticion.onsuccess = function (evento) {
             console.log("Sucess");
 
             var bd = evento.target.result;
             var transaccion = bd.transaction(bd.objectStoreNames, "readwrite");
-            var almacen = transaccion.objectStore(nombre);
+            var almacen = transaccion.objectStore(tabla);
 
-            var peticion = almacen.openCursor();
+            var peticion = almacen.getAll();
             peticion.onsuccess = function () {
-                var cursor = peticion.result;
-                if (cursor) {
-                    json.push(cursor.value);
-                    console.log(peticion.result.value);
+                var valores = peticion.result;
 
-                    cursor.continue(); //continue incrementa el cursor una posición
-                } else {
-                    console.log("FIN Carga");
+                for (item in valores) {
+                    insertarElemento(valores[item], tabla);
+                    switch ("tabla") {
+                        case 0:
+                            break;
+                    }
                 }
             }
             bd.close();
@@ -33,7 +32,60 @@ function cargar(nombre) {
     } else {
         console.log("IndexedDB no está soportado");
     }
-    return json;
+}
+
+function insertarElemento(item) {
+    var lista = document.getElementById("album-list");
+
+    var nodoAlbum = document.createElement("div");
+    nodoAlbum.className = "album";
+
+    var enlaceImg = document.createElement("a");
+    enlaceImg.href = "album.html";
+
+    var nodoImgAlbum = document.createElement("div");
+    nodoImgAlbum.className = "album-img";
+
+    var nodoImg = document.createElement("img");
+    nodoImg.src = item.caratula;
+    nodoImg.alt = item.nombre;
+
+    nodoImgAlbum.appendChild(nodoImg);
+    enlaceImg.appendChild(nodoImgAlbum);
+    nodoAlbum.appendChild(enlaceImg);
+
+    var nodoContent = document.createElement("div");
+    nodoContent.className = "album-content";
+
+    var nodoInfo = document.createElement("div");
+    nodoInfo.className = "album-info";
+
+    var nodoArtist = document.createElement("div");
+    nodoArtist.className = "artist-name";
+
+    var enlaceArtist = document.createElement("a");
+    enlaceArtist.href = "artist.html";
+    var nodoTexto = document.createTextNode(item.autor);
+    enlaceArtist.appendChild(nodoTexto);
+
+    nodoArtist.appendChild(enlaceArtist);
+    nodoInfo.appendChild(nodoArtist);
+
+    var nodoName = document.createElement("div");
+    nodoName.className = "album-name";
+
+    var enlaceAlbum = document.createElement("a");
+    enlaceAlbum.href = "album.html";
+    var nodoTexto = document.createTextNode(item.nombre);
+    enlaceAlbum.appendChild(nodoTexto);
+
+    nodoName.appendChild(enlaceAlbum);
+    nodoInfo.appendChild(nodoName);
+
+    nodoContent.appendChild(nodoInfo);
+    nodoAlbum.appendChild(nodoContent);
+
+    lista.appendChild(nodoAlbum);
 }
 
 function eliminar(nombre, id, rango) {
