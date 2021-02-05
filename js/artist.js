@@ -1,7 +1,8 @@
 function inicio(){
     header();
     cargar("autor");
-    cargar("pista");
+    cargarNav();
+    //cargar("pista");
 }
 
 window.onload = inicio;

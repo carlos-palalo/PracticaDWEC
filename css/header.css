@@ -72,8 +72,8 @@ header .container a:hover {
 
 @media screen and (min-width:1080px) {
     .container {
-        margin-left: 20%;
-        margin-right: 20%;
+        margin-left: 15%;
+        margin-right: 15%;
     }
     body {
         background-color: gainsboro;
