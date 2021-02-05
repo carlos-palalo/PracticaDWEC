@@ -14,9 +14,17 @@ function cargar(tabla) {
                 var valores = peticion.result;
 
                 for (item in valores) {
-                    insertarElemento(valores[item], tabla);
                     switch ("tabla") {
-                        case 0:
+                        case "album":
+                            insertarListaAlbum(valores[item]);
+                            break;
+                        case "autor":
+                            break;
+                        case "lista":
+                            break;
+                        case "pista":
+                            break;
+                        case "concierto":
                             break;
                     }
                 }
@@ -34,7 +42,7 @@ function cargar(tabla) {
     }
 }
 
-function insertarElemento(item) {
+function insertarListaAlbum(item) {
     var lista = document.getElementById("album-list");
 
     var nodoAlbum = document.createElement("div");
@@ -42,6 +50,9 @@ function insertarElemento(item) {
 
     var enlaceImg = document.createElement("a");
     enlaceImg.href = "album.html";
+    enlaceImg.addEventListener("click", function () {
+        localStorage.setItem("album", item.nombre);
+    });
 
     var nodoImgAlbum = document.createElement("div");
     nodoImgAlbum.className = "album-img";
@@ -65,6 +76,9 @@ function insertarElemento(item) {
 
     var enlaceArtist = document.createElement("a");
     enlaceArtist.href = "artist.html";
+    enlaceArtist.addEventListener("click", function () {
+        localStorage.setItem("autor", item.autor);
+    });
     var nodoTexto = document.createTextNode(item.autor);
     enlaceArtist.appendChild(nodoTexto);
 
@@ -76,6 +90,10 @@ function insertarElemento(item) {
 
     var enlaceAlbum = document.createElement("a");
     enlaceAlbum.href = "album.html";
+    enlaceAlbum.addEventListener("click", function () {
+        localStorage.setItem("album", item.nombre);
+    });
+
     var nodoTexto = document.createTextNode(item.nombre);
     enlaceAlbum.appendChild(nodoTexto);
 
