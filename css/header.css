@@ -57,7 +57,8 @@ header .container a:hover {
 #search button:hover {
     background-color: whitesmoke;
     color: black;
-    cursor: pointer;;
+    cursor: pointer;
+    ;
 }
 
 #search button span {

@@ -1,10 +1,14 @@
-function cargar(tabla) {
-    console.log(tabla);
+function cargar(tabla, origen) {
+    //console.log(tabla);
+    if (origen == "artist") {
+        document.getElementById("lista").innerHTML = "";
+    }
+
     if (window.indexedDB) {
         peticion = window.indexedDB.open("musica");
 
         peticion.onsuccess = function (evento) {
-            console.log("Sucess");
+            console.log("Sucess " + tabla);
 
             var bd = evento.target.result;
             var transaccion = bd.transaction(bd.objectStoreNames, "readwrite");
@@ -17,7 +21,12 @@ function cargar(tabla) {
                 for (item in valores) {
                     switch (tabla) {
                         case "album":
-                            insertarListaAlbum(valores[item]);
+                            if (origen == "artist") {
+                                if (valores[item].autor == localStorage.getItem("autor"))
+                                    insertarListaAlbum(valores[item]);
+                            } else {
+                                insertarListaAlbum(valores[item]);
+                            }
                             break;
                         case "autor":
                             if (valores[item].autor == localStorage.getItem("autor")) {
@@ -27,8 +36,9 @@ function cargar(tabla) {
                         case "lista":
                             break;
                         case "pista":
-                            if (valores[item].autor == localStorage.getItem("autor"))
+                            if (valores[item].autor == localStorage.getItem("autor")) {
                                 insertarPistas(valores[item]);
+                            }
                             break;
                         case "concierto":
                             break;
@@ -48,27 +58,10 @@ function cargar(tabla) {
     }
 }
 
-function cargarNav() {
-    var nodoNav = document.getElementById("nav");
-    var pestañas = ["Todo", "Álbumes", "Conciertos", "Listas"];
-    var tablas = ["pista", "album", "concierto", "lista"];
-
-    for (var i = 0; i < 4; i++) {
-        var nodo = document.createElement("div");
-        nodo.textContent = pestañas[i];
-        nodo.className = tablas[i];
-        nodo.addEventListener("click", function () {
-            cargar(this.className);
-        });
-        nodoNav.appendChild(nodo);
-    }
-}
-
 function insertarListaAlbum(item) {
-    var lista = document.getElementById("album-list");
-    console.log("a");
+    var lista = document.getElementById("lista");
     var nodoAlbum = document.createElement("div");
-    nodoAlbum.className = "album";
+    nodoAlbum.className = "album-container";
 
     var enlaceImg = document.createElement("a");
     enlaceImg.href = "album.html";
@@ -126,54 +119,6 @@ function insertarListaAlbum(item) {
     nodoAlbum.appendChild(nodoContent);
 
     lista.appendChild(nodoAlbum);
-}
-
-function insertarInfo(item) {
-    var container = document.getElementById("container-artist");
-    container.style.backgroundImage = "url('" + item.fondo_perfil + "')";
-    console.log(item.fondo_perfil);
-
-    var nodoImg = document.createElement("img");
-    nodoImg.src = item.foto_perfil;
-    nodoImg.className = "img";
-    nodoImg.alt = "Foto de perfil de " + item.autor;
-
-    container.appendChild(nodoImg);
-
-    var nodoDesc = document.createElement("div");
-    nodoDesc.className = "desc";
-
-    var nodoName = document.createElement("div");
-    nodoName.className = "name";
-    nodoName.textContent = item.autor;
-    nodoDesc.appendChild(nodoName);
-
-    var nodoInfo = document.createElement("div");
-    nodoInfo.className = "info";
-    var generos = item.generos.split(",");
-    generos.forEach(x => {
-        nodoInfo.textContent += "#" + x + " ";
-    });
-    nodoDesc.appendChild(nodoInfo);
-
-    container.appendChild(nodoDesc);
-}
-
-function insertarPistas(item) {
-    var track = document.getElementById("track");
-    //track.insertBefore(img,track.childNodes[0]);
-
-    var nodoContent = document.createElement("div").className="track-content";
-    var nodoHeader = document.createElement("div").className="track-header";
-    var nodoButton = document.createElement("button");
-    var nodoSpan = document.createElement("span").className="material-icons";
-    nodoSpan.textContent="play_arrow";
-    nodoButton.appendChild(nodoSpan);
-    nodoHeader.appendChild(nodoButton);
-
-    var nodoInfo=document.createElement("div").className="track-info";
-    var nodoArtName=document.createElement("div").className="artist-name";
-
 }
 
 function eliminar(nombre, id, rango) {

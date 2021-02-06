@@ -3,7 +3,8 @@
     margin: 0px;
     overflow-x: hidden;
 }
-img{
+
+img {
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -69,6 +70,7 @@ main .container {
 nav {
     display: flex;
     width: 100%;
+    border-bottom: 1px solid gainsboro;
 }
 
 nav div {
@@ -87,7 +89,7 @@ main hr {
     border: 1px solid gainsboro;
 }
 
-#track {
+.track {
     width: 100%;
     display: flex;
     padding: 20px;
@@ -97,6 +99,7 @@ main hr {
     width: 150px;
     height: 150px;
     background-color: red;
+    background-size: cover;
 }
 
 .track-content, .song-desc {
@@ -136,17 +139,19 @@ a {
 .track-header .track-info, .song .song-info {
     margin-left: 10px;
 }
-.track-info a{
+
+.track-info a {
     display: block;
 }
-.track-info .artist-name, .song-info .artist-name a{
+
+.track-info .album-name, .song-info .artist-name a {
     color: grey;
     font-size: small;
     margin-bottom: 3px;
 }
 
 .track-info .track-name, .song-info .song-name a {
-    color: rgb(51, 51, 51);
+    color: rgb(61, 14, 14);
 }
 
 .track-info a:hover, .song-info a:hover {
@@ -158,10 +163,6 @@ a {
     height: 20px;
     position: absolute;
     bottom: 0px;
-}
-
-#track {
-    border-top: 1px solid gainsboro;
 }
 
 .update-date {
