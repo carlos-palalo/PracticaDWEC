@@ -21,11 +21,16 @@ function cargar(tabla, origen) {
                 for (item in valores) {
                     switch (tabla) {
                         case "album":
-                            if (origen == "artist") {
-                                if (valores[item].autor == localStorage.getItem("autor"))
+                            switch (origen) {
+                                case "artist":
+                                    if (valores[item].autor == localStorage.getItem("autor"))
+                                        insertarListaAlbum(valores[item]);
+                                    break;
+                                case "album":
+                                    break;
+                                default:
                                     insertarListaAlbum(valores[item]);
-                            } else {
-                                insertarListaAlbum(valores[item]);
+                                    break;
                             }
                             break;
                         case "autor":
