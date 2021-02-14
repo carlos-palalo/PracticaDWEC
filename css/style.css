@@ -16,7 +16,7 @@ body {
 }
 
 main {
-    margin-top: 50px;
+    margin-top: 59px;
 }
 
 .container .left, .container .right, .container-song, .song {
@@ -29,6 +29,56 @@ main {
 
 main .container {
     background-color: white;
+}
+
+#container-album {
+    background: rgb(0, 50, 85);
+    background: linear-gradient(153deg, rgba(0, 50, 85, 1) 0%, rgba(119, 125, 129, 1) 100%);
+    display: flex;
+    padding: 30px;
+}
+
+#container-album .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+.info>* {
+    background-color: black;
+    width: fit-content;
+    color: white;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.info .autor {
+    color: gray;
+    font-size: 16px;
+}
+
+.autor:hover {
+    color: gainsboro;
+}
+
+.info .album {
+    font-size: x-large;
+}
+
+.info .pistas {
+    bottom: 0px;
+    margin-top: auto;
+    padding: 24px 35px;
+    border-radius: 50px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: x-small;
+}
+
+.pistas #num {
+    font-size: xx-large;
+    margin-bottom: 10px;
 }
 
 #container-artist {
@@ -178,8 +228,45 @@ a {
     width: 250px;
     height: 250px;
     background-color: grey;
+    overflow: hidden;
+    border: 1px solid black;
+    vertical-align: middle;
+    align-items: center;
 }
 
 .song-desc {
     flex: 1;
+}
+
+.cancion {
+    padding: 5px 20px;
+    display: flex;
+    border-bottom: 1px solid whitesmoke;
+    align-items: center;
+}
+
+.cancion:last-child {
+    border-bottom: none;
+}
+
+.cancion .num {
+    color: grey;
+    padding: 0px 10px;
+}
+
+.cancion .name {
+    margin-right: 30px;
+    width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.cancion audio {
+    width: 100%;
+    margin-right: 10px;
+    margin-left: auto;
+}
+
+audio:focus {
+    outline: none;
 }

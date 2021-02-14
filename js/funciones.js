@@ -18,37 +18,40 @@ function cargar(tabla, origen) {
             peticion.onsuccess = function () {
                 var valores = peticion.result;
 
-                for (item in valores) {
-                    switch (tabla) {
-                        case "album":
-                            switch (origen) {
-                                case "artist":
-                                    if (valores[item].autor == localStorage.getItem("autor"))
+                if (origen == "buscador") {
+                    jsonSearch(valores,tabla);
+                } else
+                    for (item in valores) {
+                        switch (tabla) {
+                            case "album":
+                                switch (origen) {
+                                    case "artist":
+                                        if (valores[item].autor == localStorage.getItem("autor"))
+                                            insertarListaAlbum(valores[item]);
+                                        break;
+                                    case "album":
+                                        if (valores[item].nombre == localStorage.getItem("album"))
+                                            insertarInfo(valores[item]);
+                                        break;
+                                    default:
                                         insertarListaAlbum(valores[item]);
-                                    break;
-                                case "album":
-                                    break;
-                                default:
-                                    insertarListaAlbum(valores[item]);
-                                    break;
-                            }
-                            break;
-                        case "autor":
-                            if (valores[item].autor == localStorage.getItem("autor")) {
-                                insertarInfo(valores[item]);
-                            }
-                            break;
-                        case "lista":
-                            break;
-                        case "pista":
-                            if (valores[item].autor == localStorage.getItem("autor")) {
-                                insertarPistas(valores[item]);
-                            }
-                            break;
-                        case "concierto":
-                            break;
+                                        break;
+                                }
+                                break;
+                            case "autor":
+                                if (valores[item].autor == localStorage.getItem("autor")) {
+                                    insertarInfo(valores[item]);
+                                }
+                                break;
+                            case "lista":
+                                break;
+                            case "pista":
+                                if (valores[item].autor == localStorage.getItem("autor")) {
+                                    insertarPistas(valores[item]);
+                                }
+                                break;
+                        }
                     }
-                }
             }
             bd.close();
         };
@@ -72,6 +75,7 @@ function insertarListaAlbum(item) {
     enlaceImg.href = "album.html";
     enlaceImg.addEventListener("click", function () {
         localStorage.setItem("album", item.nombre);
+        localStorage.setItem("autor", item.autor);
     });
 
     var nodoImgAlbum = document.createElement("div");
@@ -112,6 +116,7 @@ function insertarListaAlbum(item) {
     enlaceAlbum.href = "album.html";
     enlaceAlbum.addEventListener("click", function () {
         localStorage.setItem("album", item.nombre);
+        localStorage.setItem("autor", item.autor);
     });
 
     var nodoTexto = document.createTextNode(item.nombre);
