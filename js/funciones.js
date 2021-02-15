@@ -99,7 +99,7 @@ function insertarListaAlbum(item) {
     nodoArtist.className = "artist-name";
 
     var enlaceArtist = document.createElement("a");
-    enlaceArtist.href = "artist.html";
+    enlaceArtist.href = "autor.html";
     enlaceArtist.addEventListener("click", function () {
         localStorage.setItem("autor", item.autor);
     });

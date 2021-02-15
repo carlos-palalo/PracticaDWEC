@@ -13,7 +13,7 @@ function insertarInfo(item) {
     container.appendChild(info);
 
     var autor = document.createElement("a");
-    autor.href = "artist.html";
+    autor.href = "autor.html";
     autor.className = "autor";
     autor.innerText = item.autor;
     info.appendChild(autor);

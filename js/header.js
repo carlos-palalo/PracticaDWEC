@@ -23,6 +23,12 @@ function header() {
     search.id = "search";
     head.appendChild(search);
 
+    var resultado = document.createElement("div");
+    resultado.id = "resultado";
+    search.appendChild(resultado);
+    $(function () {
+        $("#resultado").hide();
+    })
     var form = document.createElement("form");
     search.appendChild(form);
 
@@ -30,6 +36,7 @@ function header() {
     input.id = "buscador";
     input.type = "text";
     input.placeholder = "Buscar artista o album";
+    input.autocomplete = "off";
     form.appendChild(input);
 
     var button = document.createElement("button");
@@ -71,6 +78,8 @@ function header() {
     }
     cargar("album", "buscador");
     cargar("autor", "buscador");
+
+    document.getElementById("buscador").addEventListener("keyup", buscar);
 }
 
 function jsonSearch(array, tabla) {
@@ -86,7 +95,7 @@ function jsonSearch(array, tabla) {
                 obj.push({ album: x.nombre });
                 break;
             case "autor":
-                obj.push({ artist: x.autor });
+                obj.push({ autor: x.autor });
                 break;
         }
     })
