@@ -2,6 +2,7 @@
     padding: 0px;
     margin: 0px;
     overflow-x: hidden;
+    transition: background-color 0.5s;
 }
 
 img {
@@ -28,6 +29,7 @@ main {
 }
 
 main .container {
+    min-height: 100vh;
     background-color: white;
 }
 
@@ -142,52 +144,50 @@ main hr {
 .track {
     width: 100%;
     display: flex;
-    padding: 20px;
+    padding: 5px;
 }
 
 .track-img {
-    width: 150px;
-    height: 150px;
+    width: 75px;
+    height: 65px;
     background-color: red;
     background-size: cover;
+    border: 1px solid black;
 }
 
 .track-content, .song-desc {
     margin-left: 10px;
     margin-right: 40px;
     padding: 10px;
-    flex: 1;
-    position: relative;
-}
-
-.track-header, .song {
+    /*flex: 1;*/
     display: flex;
-    margin-bottom: 10px;
+    width: 100%;
 }
 
-.track-header>a, .song>a {
-    background-color: orange;
+.track-info {
+    margin: auto 0;
+    width: fit-content;
+}
+
+.track-info * {
+    width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.track-info>a, .song>a {
     color: white;
     border: none;
-    padding: 2px 3px;
     border-radius: 50px;
+}
+
+.track-content audio {
+    width: 100%;
+    margin-left: auto;
 }
 
 a {
     text-decoration: none;
-}
-
-.track-header a>span, .song a>span {
-    font-size: 30px;
-    vertical-align: middle;
-}
-
-.track-header>a:hover, .song>a:hover {
-    background-color: orangered;
-}
-
-.track-header .track-info, .song .song-info {
-    margin-left: 10px;
 }
 
 .track-info a {
@@ -197,11 +197,11 @@ a {
 .track-info .album-name, .song-info .artist-name a {
     color: grey;
     font-size: small;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
 }
 
 .track-info .track-name, .song-info .song-name a {
-    color: rgb(61, 14, 14);
+    color: black;
 }
 
 .track-info a:hover, .song-info a:hover {
@@ -269,4 +269,25 @@ a {
 
 audio:focus {
     outline: none;
+}
+
+.lista-item {
+    background-color: #d5ebf8;
+    display: flex;
+    padding: 25px 20px;
+    font-size: 22px;
+}
+
+.lista-item .fecha {
+    margin-left: auto;
+    color: gray;
+}
+
+.lista-item:hover {
+    background-color: #b7dff7;
+    cursor: pointer;
+}
+
+.pistas .cancion:hover{
+    background-color:#d8fdfd;
 }

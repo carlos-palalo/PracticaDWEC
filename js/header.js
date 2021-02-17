@@ -11,7 +11,7 @@ function header() {
 
     var enlace = document.createElement("a");
     enlace.href = "index.html";
-    enlace.innerText = "Logo";
+    enlace.innerText = "Inicio";
     logo.appendChild(enlace);
 
     var head = document.createElement("div");
@@ -23,6 +23,12 @@ function header() {
     search.id = "search";
     head.appendChild(search);
 
+    var resultado = document.createElement("div");
+    resultado.id = "resultado";
+    search.appendChild(resultado);
+    $(function () {
+        $("#resultado").hide();
+    })
     var form = document.createElement("form");
     search.appendChild(form);
 
@@ -30,6 +36,7 @@ function header() {
     input.id = "buscador";
     input.type = "text";
     input.placeholder = "Buscar artista o album";
+    input.autocomplete = "off";
     form.appendChild(input);
 
     var button = document.createElement("button");
@@ -43,17 +50,10 @@ function header() {
 
     if (localStorage.getItem("idUser") != undefined && localStorage.getItem("idUser") != "") {
         var nodoEnlace = document.createElement("a");
-        //nodoEnlace.href = "cuenta.html";
-        nodoEnlace.href = "";
+        nodoEnlace.href = "cuenta.html";
 
-        var texto = document.createTextNode(localStorage.getItem("user"));
-
+        var texto = document.createTextNode("Mi Cuenta");
         nodoEnlace.appendChild(texto);
-
-        nodoEnlace.addEventListener("click", function () {
-            localStorage.removeItem("user");
-            localStorage.removeItem("idUser");
-        });
 
         head.appendChild(nodoEnlace);
     } else {
@@ -71,6 +71,8 @@ function header() {
     }
     cargar("album", "buscador");
     cargar("autor", "buscador");
+
+    document.getElementById("buscador").addEventListener("keyup", buscar);
 }
 
 function jsonSearch(array, tabla) {
@@ -86,7 +88,7 @@ function jsonSearch(array, tabla) {
                 obj.push({ album: x.nombre });
                 break;
             case "autor":
-                obj.push({ artist: x.autor });
+                obj.push({ autor: x.autor });
                 break;
         }
     })

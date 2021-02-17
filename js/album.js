@@ -13,14 +13,14 @@ function insertarInfo(item) {
     container.appendChild(info);
 
     var autor = document.createElement("a");
-    autor.href = "artist.html";
+    autor.href = "autor.html";
     autor.className = "autor";
     autor.innerText = item.autor;
     info.appendChild(autor);
 
     var album = document.createElement("div");
     album.className = "album";
-    album.innerText = item.nombre;
+    album.innerText = item.nombre+" - "+item.lanzamiento;
     info.appendChild(album);
 
     var pistas = document.createElement("div");
@@ -88,6 +88,7 @@ function cargarPistas(id) {
                         audio.controls = "true";
                         cancion.appendChild(audio);
                         cont++;
+                        configurarAudio();
                     }
                 }
                 document.getElementById("num").innerText = cont-1;
@@ -100,14 +101,3 @@ function cargarPistas(id) {
         console.log("IndexedDB no está soportado");
     }
 };
-
-$(function () {
-    $('audio').on("play", function (current) {
-        $('audio').each(function (i, event) {
-            if (event !== current.currentTarget) {
-                this.pause();
-                this.currentTime = 0;
-            }
-        });
-    });
-})

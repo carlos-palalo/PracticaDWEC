@@ -44,6 +44,9 @@ function cargar(tabla, origen) {
                                 }
                                 break;
                             case "lista":
+                                if (valores[item].autor == localStorage.getItem("autor")) {
+                                    insertarListas(valores[item]);
+                                }
                                 break;
                             case "pista":
                                 if (valores[item].autor == localStorage.getItem("autor")) {
@@ -68,6 +71,7 @@ function cargar(tabla, origen) {
 
 function insertarListaAlbum(item) {
     var lista = document.getElementById("lista");
+    lista.className="album-list";
     var nodoAlbum = document.createElement("div");
     nodoAlbum.className = "album-container";
 
@@ -99,7 +103,7 @@ function insertarListaAlbum(item) {
     nodoArtist.className = "artist-name";
 
     var enlaceArtist = document.createElement("a");
-    enlaceArtist.href = "artist.html";
+    enlaceArtist.href = "autor.html";
     enlaceArtist.addEventListener("click", function () {
         localStorage.setItem("autor", item.autor);
     });
@@ -163,4 +167,18 @@ function eliminar(nombre, id, rango) {
     } else {
         console.log("IndexedDB no está soportado");
     }
+}
+
+function configurarAudio(){
+    $(function () {
+        $('audio').on("play", function (current) {
+            $('audio').each(function (i, event) {
+                if (event !== current.currentTarget) {
+                    this.pause();
+                    this.currentTime = 0;
+                    console.log("a");
+                }
+            });
+        });
+    })
 }

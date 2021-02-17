@@ -36,255 +36,114 @@
 
                 /*************** AUTORES *************/
                 almacenAutor = transaccion.objectStore("autor");
-                almacenAutor.add({ id: 1, autor: "Desakato", email: "desakato@gmail.com", password: "Desakato1", fecha_creacion: new Date().toLocaleDateString(), origen: "Asturias, España", foto_perfil: "img/perfil_desakato.jpg", fondo_perfil: "img/fondo_desakato.jpg", generos: "Rock,Punk" });
-                almacenAutor.add({ id: 2, autor: "Mono Inc.", email: "monoinc@gmail.com", password: "Monoinc1", fecha_creacion: new Date().toLocaleDateString(), origen: "Hamburgo, Alemania", foto_perfil: "img/perfil_monoinc.jpg", fondo_perfil: "img/fondo_monoinc.jpg", generos: "Rock alternativo,Rock gótico,Metal gótico,Metal industrial" });
-                almacenAutor.add({ id: 3, autor: "Lord of the Lost", email: "lordofthelost@gmail.com", password: "Lordofthelost1", fecha_creacion: new Date().toLocaleDateString(), origen: "Hamburgo, Alemania", foto_perfil: "img/perfil_lordofthelost.jpg", fondo_perfil: "img/fondo_lordofthelost.jpg", generos: "Metal gótico,Metal industrial,Rock gótico,hard rock" });
-                almacenAutor.add({ id: 4, autor: "Jinjer", email: "jinjer@gmail.com", password: "Jinjer1", fecha_creacion: new Date().toLocaleDateString(), origen: "Ucrania", foto_perfil: "img/perfil_jinjer.jpg", fondo_perfil: "img/fondo_jinjer.jpg", generos: "Metalcore,Djent,Death metal progresivo" });
-                almacenAutor.add({ id: 5, autor: "La Raíz", email: "laraiz@gmail.com", password: "Laraiz1", fecha_creacion: new Date().toLocaleDateString(), origen: "Valencia, España", foto_perfil: "img/perfil_laraiz.jpg", fondo_perfil: "img/fondo_laraiz.jpg", generos: "Ska,Rock,Reggae,Fusion,Rap" });
-                almacenAutor.add({ id: 6, autor: "Extremoduro", email: "extremoduro@gmail.com", password: "Extremoduro1", fecha_creacion: new Date().toLocaleDateString(), origen: "Cáceres, España", foto_perfil: "img/perfil_extremoduro.jpg", fondo_perfil: "img/fondo_extremoduro.jpg", generos: "Hard,Rock" });
 
-                /*************** CONCIERTO *************/
-                almacenConcierto = transaccion.objectStore("concierto");
-                almacenConcierto.add({ id: 1, autor: "Desakato", nombre: "Viñarock", latitud: "/", longitud: "/", fecha: "2020" });
+                almacenAutor.add({ id: 1, autor: "Admin", email: "admin@gmail.com", password: "Admin12", fecha_creacion: new Date().toLocaleDateString()});
+                almacenAutor.add({ id: 2, autor: "Desakato", email: "desakato@gmail.com", password: "Desakato1", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "img/perfil_desakato.jpg", fondo_perfil: "img/fondo_desakato.jpg", generos: "Rock,Punk" });
+                almacenAutor.add({ id: 3, autor: "Thirty Seconds To Mars", email: "thirtysecondstomars@gmail.com", password: "Thirtyecondstomars1", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "img/perfil_thirtysecondstomars.jpg", fondo_perfil: "img/fondo_thirtysecondstomars.jpg", generos: "Rock alternativo,Post-grunge,Hard Rock,Rock Indie" });
+                almacenAutor.add({ id: 4, autor: "La Raíz", email: "laraiz@gmail.com", password: "Laraiz1", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "img/perfil_laraiz.jpg", fondo_perfil: "img/fondo_laraiz.jpg", generos: "Ska,Rock,Reggae,Fusion,Rap" });
+                almacenAutor.add({ id: 5, autor: "The Offspring", email: "theoffspring@gmail.com", password: "Theoffspring1", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "img/perfil_theoffspring.jpg", fondo_perfil: "img/fondo_theoffspring.jpg", generos: "Pop Punk,Punk Rock,Rock alternativo" });
 
                 /*************** ALBUM *************/
                 almacenAlbum = transaccion.objectStore("album");
                 //Desakato
-                almacenAlbum.add({ id: 1, autor: "Desakato", nombre: "Con el viento de cara", lanzamiento: "2008", caratula: "img/con-el-viento-de-cara-200x200.jpg" });
-                almacenAlbum.add({ id: 2, autor: "Desakato", nombre: "Miseria, sangre y plomo", lanzamiento: "2010", caratula: "img/miseria-sangre-y-plomo-200x200.jpg" });
-                almacenAlbum.add({ id: 3, autor: "Desakato", nombre: "Inercia", lanzamiento: "2012", caratula: "img/inercia-200x200.jpg" });
-                almacenAlbum.add({ id: 4, autor: "Desakato", nombre: "Buen Viaje", lanzamiento: "2014", caratula: "img/buen-viaje-200x200.jpg" });
-                almacenAlbum.add({ id: 5, autor: "Desakato", nombre: "La teoría del fuego", lanzamiento: "2016", caratula: "img/la-teoria-del-fuego-200x200.jpg" });
-                almacenAlbum.add({ id: 6, autor: "Desakato", nombre: "Antártida", lanzamiento: "2018", caratula: "img/antartida-200x200.jpg" });
-                almacenAlbum.add({ id: 7, autor: "Desakato", nombre: "La miel de las flores muertas", lanzamiento: "2020", caratula: "img/la-miel-de-las-flores-muertas-200x200.jpg" });
-                //Mono Inc.
-                almacenAlbum.add({ id: 8, autor: "Mono Inc.", nombre: "Head Under Water", lanzamiento: "2004", caratula: "img/head-under-water-200x200.jpg" });
-                almacenAlbum.add({ id: 9, autor: "Mono Inc.", nombre: "Temple of the Torn", lanzamiento: "2007", caratula: "img/temple-of-the-torn-200x200.jpg" });
-                almacenAlbum.add({ id: 10, autor: "Mono Inc.", nombre: "Pain, Love & Poetry", lanzamiento: "2008", caratula: "img/pain-love-poetry-200x200.jpg" });
-                almacenAlbum.add({ id: 11, autor: "Mono Inc.", nombre: "Voices of Doom", lanzamiento: "2009", caratula: "img/voices-of-doom-200x200.jpg" });
-                almacenAlbum.add({ id: 12, autor: "Mono Inc.", nombre: "Viva Hades", lanzamiento: "2011", caratula: "img/viva-hades-200x200.jpg" });
-                almacenAlbum.add({ id: 13, autor: "Mono Inc.", nombre: "After the War", lanzamiento: "2012", caratula: "img/after-the-war-200x200.jpg" });
-                almacenAlbum.add({ id: 14, autor: "Mono Inc.", nombre: "Nimmermehr", lanzamiento: "2013", caratula: "img/nimmermehr-200x200.jpg" });
-                almacenAlbum.add({ id: 15, autor: "Mono Inc.", nombre: "Terlingua", lanzamiento: "2015", caratula: "img/terlingua-200x200.jpg" });
-                almacenAlbum.add({ id: 16, autor: "Mono Inc.", nombre: "Together Till the End", lanzamiento: "2017", caratula: "img/together-till-the-end-200x200.jpg" });
-                almacenAlbum.add({ id: 17, autor: "Mono Inc.", nombre: "Welcome to Hell", lanzamiento: "2018", caratula: "img/welcome-to-hell-200x200.jpg" });
-                almacenAlbum.add({ id: 18, autor: "Mono Inc.", nombre: "The Book of Fire", lanzamiento: "2020", caratula: "img/the-book-of-fire-200x200.jpg" });
-                //Lord of the Lost
-                almacenAlbum.add({ id: 19, autor: "Lord of the Lost", nombre: "Fears", lanzamiento: "2010", caratula: "img/fears-200x200.jpg" });
-                almacenAlbum.add({ id: 20, autor: "Lord of the Lost", nombre: "Antagony", lanzamiento: "2011", caratula: "img/antagony-200x200.jpg" });
-                almacenAlbum.add({ id: 21, autor: "Lord of the Lost", nombre: "Die Tomorrow", lanzamiento: "2012", caratula: "img/die-tomorrow-200x200.jpg" });
-                almacenAlbum.add({ id: 22, autor: "Lord of the Lost", nombre: "From the Flame Into the Fire", lanzamiento: "2014", caratula: "img/from-the-flames-into-the-fire-200x200.jpg" });
-                almacenAlbum.add({ id: 23, autor: "Lord of the Lost", nombre: "Empyrean", lanzamiento: "2016", caratula: "img/empyrean-200x200.jpg" });
-                almacenAlbum.add({ id: 24, autor: "Lord of the Lost", nombre: "Thornstar", lanzamiento: "2018", caratula: "img/thornstar-200x200.jpg" });
-                //Jinjer
-                almacenAlbum.add({ id: 25, autor: "Jinjer", nombre: "Inhale, Don't Breathe", lanzamiento: "2012", caratula: "img/inhale-dont-breathe-200x200.jpg" });
-                almacenAlbum.add({ id: 26, autor: "Jinjer", nombre: "Cloud Factory", lanzamiento: "2014", caratula: "img/cloud-factory-200x200.jpg" });
-                almacenAlbum.add({ id: 27, autor: "Jinjer", nombre: "King of Everything", lanzamiento: "2016", caratula: "img/king-of-everything-200x200.jpg" });
-                almacenAlbum.add({ id: 28, autor: "Jinjer", nombre: "Macro", lanzamiento: "2019", caratula: "img/macro-200x200.jpg" });
+                almacenAlbum.add({ id: 1, autor: "Desakato", nombre: "Con el viento de cara", lanzamiento: "2008", caratula: "img/con-el-viento-de-cara-500x500.jpg" });
+                almacenAlbum.add({ id: 2, autor: "Desakato", nombre: "Miseria, sangre y plomo", lanzamiento: "2010", caratula: "img/miseria-sangre-y-plomo-500x500.jpg" });
+                almacenAlbum.add({ id: 3, autor: "Desakato", nombre: "Inercia", lanzamiento: "2012", caratula: "img/inercia-500x500.jpg" });
+                almacenAlbum.add({ id: 4, autor: "Desakato", nombre: "Buen Viaje", lanzamiento: "2014", caratula: "img/buen-viaje-500x500.jpg" });
+                almacenAlbum.add({ id: 5, autor: "Desakato", nombre: "La teoría del fuego", lanzamiento: "2016", caratula: "img/la-teoria-del-fuego-500x500.jpg" });
+                almacenAlbum.add({ id: 6, autor: "Desakato", nombre: "Antártida", lanzamiento: "2018", caratula: "img/antartida-500x500.jpg" });
+                almacenAlbum.add({ id: 7, autor: "Desakato", nombre: "La miel de las flores muertas", lanzamiento: "2020", caratula: "img/la-miel-de-las-flores-muertas-500x500.jpg" });
                 //La Raíz
-                almacenAlbum.add({ id: 29, autor: "La Raíz", nombre: "Guerra al Silencio", lanzamiento: "2009", caratula: "img/guerra-al-silencio-200x200.jpg" });
-                almacenAlbum.add({ id: 30, autor: "La Raíz", nombre: "El Lado de los Rebeldes", lanzamiento: "2011", caratula: "img/el-lado-de-los-rebeldes-200x200.jpg" });
-                almacenAlbum.add({ id: 31, autor: "La Raíz", nombre: "Así en el Cielo cmo en la Selva", lanzamiento: "2013", caratula: "img/asi-en-el-cielo-como-en-la-selva-200x200.jpg" });
-                almacenAlbum.add({ id: 32, autor: "La Raíz", nombre: "Entre Poetas y Presos", lanzamiento: "2016", caratula: "img/entre-poetas-y-presos-200x200.jpg" });
-                almacenAlbum.add({ id: 33, autor: "La Raíz", nombre: "Nos Volveremos a Ver", lanzamiento: "2018", caratula: "img/nos-volveremos-a-ver-200x200.jpg" });
-                //Extremoduro
-                almacenAlbum.add({ id: 34, autor: "Extremoduro", nombre: "Rock transgresivo", lanzamiento: "1989", caratula: "img/rock-transgresivo-200x200.jpg" });
-                almacenAlbum.add({ id: 35, autor: "Extremoduro", nombre: "Somos unos animales", lanzamiento: "1991", caratula: "img/somos-unos-animales-200x200.jpg" });
-                almacenAlbum.add({ id: 36, autor: "Extremoduro", nombre: "Deltoya", lanzamiento: "1992", caratula: "img/deltoya-200x200.jpg" });
-                almacenAlbum.add({ id: 37, autor: "Extremoduro", nombre: "¿Dónde están mis amigos?", lanzamiento: "1993", caratula: "img/donde-esta-mis-amigos-200x200.jpg" });
-                almacenAlbum.add({ id: 38, autor: "Extremoduro", nombre: "Pedrá", lanzamiento: "1995", caratula: "img/pedra-200x200.jpg" });
-                almacenAlbum.add({ id: 39, autor: "Extremoduro", nombre: "Agila", lanzamiento: "1996", caratula: "img/agila-200x200.jpg" });
-                almacenAlbum.add({ id: 40, autor: "Extremoduro", nombre: "Canciones prohibidas", lanzamiento: "1998", caratula: "img/canciones-prohibidas-200x200.jpg" });
-                almacenAlbum.add({ id: 41, autor: "Extremoduro", nombre: "Yo, minoría absoluta", lanzamiento: "2002", caratula: "img/yo-minoria-absoluta-200x200.jpg" });
-                almacenAlbum.add({ id: 42, autor: "Extremoduro", nombre: "La ley innata", lanzamiento: "2008", caratula: "img/la-ley-innata-200x200.jpg" });
-                almacenAlbum.add({ id: 43, autor: "Extremoduro", nombre: "Material defectuoso", lanzamiento: "2011", caratula: "img/material-defectuoso-200x200.jpg" });
-                almacenAlbum.add({ id: 44, autor: "Extremoduro", nombre: "Para todos los públicos", lanzamiento: "2013", caratula: "img/para-todos-los-publicos-200x200.jpg" });
+                almacenAlbum.add({ id: 8, autor: "La Raíz", nombre: "Guerra al Silencio", lanzamiento: "2009", caratula: "img/guerra-al-silencio-500x500.jpg" });
+                almacenAlbum.add({ id: 9, autor: "La Raíz", nombre: "El Lado de los Rebeldes", lanzamiento: "2011", caratula: "img/el-lado-de-los-rebeldes-500x500.jpg" });
+                almacenAlbum.add({ id: 10, autor: "La Raíz", nombre: "Así en el Cielo cmo en la Selva", lanzamiento: "2013", caratula: "img/asi-en-el-cielo-como-en-la-selva-500x500.jpg" });
+                almacenAlbum.add({ id: 11, autor: "La Raíz", nombre: "Entre Poetas y Presos", lanzamiento: "2016", caratula: "img/entre-poetas-y-presos-500x500.jpg" });
+                //Thirty Seconds To Mars
+                almacenAlbum.add({ id: 12, autor: "Thirty Seconds To Mars", nombre: "A Beautiful Lie", lanzamiento: "2005", caratula: "img/a-beautiful-lie-500x500.jpg" });
+                almacenAlbum.add({ id: 13, autor: "Thirty Seconds To Mars", nombre: "This Is War", lanzamiento: "2009", caratula: "img/this-is-war-500x500.jpg" });
+                //The Offspring
+                almacenAlbum.add({ id: 14, autor: "The Offspring", nombre: "Ixnay On The Hombre", lanzamiento: "1997", caratula: "img/ixnay-on-the-hombre-500x500.jpg" });
+                almacenAlbum.add({ id: 15, autor: "The Offspring", nombre: "Smash", lanzamiento: "1994", caratula: "img/smash-500x500.jpg" });
 
                 /*************** PISTA *************/
                 almacenPista = transaccion.objectStore("pista");
                 //Desakato
-                almacenPista.add({ id: 1, autor: "Desakato", nombre: "Ritcher 7.5", archivo: "/", idAlbum: 1 });
-                almacenPista.add({ id: 2, autor: "Desakato", nombre: "Los mineros", archivo: "/", idAlbum: 1 });
-                almacenPista.add({ id: 3, autor: "Desakato", nombre: "Tu disfraz", archivo: "/", idAlbum: 1 });
-                almacenPista.add({ id: 4, autor: "Desakato", nombre: "Contra el dolor", archivo: "/", idAlbum: 1 });
-                almacenPista.add({ id: 5, autor: "Desakato", nombre: "África", archivo: "/", idAlbum: 2 });
-                almacenPista.add({ id: 6, autor: "Desakato", nombre: "En el Ojo Ajerno", archivo: "/", idAlbum: 2 });
-                almacenPista.add({ id: 7, autor: "Desakato", nombre: "Cada Vez", archivo: "/", idAlbum: 2 });
-                almacenPista.add({ id: 8, autor: "Desakato", nombre: "Contra la Pared", archivo: "/", idAlbum: 2 });
-                almacenPista.add({ id: 9, autor: "Desakato", nombre: "...", archivo: "/", idAlbum: 3 });
-                almacenPista.add({ id: 10, autor: "Desakato", nombre: "Iceberg", archivo: "/", idAlbum: 3 });
-                almacenPista.add({ id: 11, autor: "Desakato", nombre: "R.I.P.", archivo: "/", idAlbum: 3 });
-                almacenPista.add({ id: 12, autor: "Desakato", nombre: "Cuando Salga el Sol", archivo: "/", idAlbum: 3 });
-                almacenPista.add({ id: 13, autor: "Desakato", nombre: "Estepa", archivo: "/", idAlbum: 4 });
-                almacenPista.add({ id: 14, autor: "Desakato", nombre: "Héroes", archivo: "/", idAlbum: 4 });
-                almacenPista.add({ id: 15, autor: "Desakato", nombre: "La Tormenta", archivo: "/", idAlbum: 4 });
-                almacenPista.add({ id: 16, autor: "Desakato", nombre: "Pánico en Frankfurt", archivo: "/", idAlbum: 4 });
-                almacenPista.add({ id: 17, autor: "Desakato", nombre: "Tiempos de Cobardes", archivo: "/", idAlbum: 5 });
-                almacenPista.add({ id: 18, autor: "Desakato", nombre: "Animales Hambrientos", archivo: "/", idAlbum: 5 });
-                almacenPista.add({ id: 19, autor: "Desakato", nombre: "Estigma", archivo: "/", idAlbum: 5 });
-                almacenPista.add({ id: 20, autor: "Desakato", nombre: "Heridas Abiertas", archivo: "/", idAlbum: 5 });
-                almacenPista.add({ id: 21, autor: "Desakato", nombre: "Humo Negro", archivo: "/", idAlbum: 6 });
-                almacenPista.add({ id: 22, autor: "Desakato", nombre: "Salvajes", archivo: "/", idAlbum: 6 });
-                almacenPista.add({ id: 23, autor: "Desakato", nombre: "La Cura", archivo: "/", idAlbum: 6 });
-                almacenPista.add({ id: 24, autor: "Desakato", nombre: "Huellas", archivo: "/", idAlbum: 6 });
-                almacenPista.add({ id: 25, autor: "Desakato", nombre: "Apátridas", archivo: "/", idAlbum: 7 });
-                almacenPista.add({ id: 26, autor: "Desakato", nombre: "Hipnotizados", archivo: "/", idAlbum: 7 });
-                almacenPista.add({ id: 27, autor: "Desakato", nombre: "Nuestro Legado", archivo: "/", idAlbum: 7 });
-                almacenPista.add({ id: 28, autor: "Desakato", nombre: "Elegante Entierro", archivo: "/", idAlbum: 7 });
-                //Mono Inc.
-                almacenPista.add({ id: 29, autor: "Mono Inc.", nombre: "Burn Me", archivo: "/", idAlbum: 8 });
-                almacenPista.add({ id: 30, autor: "Mono Inc.", nombre: "The Last Waltz", archivo: "/", idAlbum: 8 });
-                almacenPista.add({ id: 31, autor: "Mono Inc.", nombre: "The Hole", archivo: "/", idAlbum: 8 });
-                almacenPista.add({ id: 32, autor: "Mono Inc.", nombre: "Superman", archivo: "/", idAlbum: 8 });
-                almacenPista.add({ id: 33, autor: "Mono Inc.", nombre: "Temple Of The Torn", archivo: "/", idAlbum: 9 });
-                almacenPista.add({ id: 34, autor: "Mono Inc.", nombre: "Won't Forget This Day", archivo: "/", idAlbum: 9 });
-                almacenPista.add({ id: 35, autor: "Mono Inc.", nombre: "The Condemned", archivo: "/", idAlbum: 9 });
-                almacenPista.add({ id: 36, autor: "Mono Inc.", nombre: "Two Sinners", archivo: "/", idAlbum: 9 });
-                almacenPista.add({ id: 37, autor: "Mono Inc.", nombre: "Pain, Love & Poetry", archivo: "/", idAlbum: 10 });
-                almacenPista.add({ id: 38, autor: "Mono Inc.", nombre: "This Is The Day", archivo: "/", idAlbum: 10 });
-                almacenPista.add({ id: 39, autor: "Mono Inc.", nombre: "The Last Waltz (Album version)", archivo: "/", idAlbum: 10 });
-                almacenPista.add({ id: 40, autor: "Mono Inc.", nombre: "Teach Me To Love (Album version)", archivo: "/", idAlbum: 10 });
-                almacenPista.add({ id: 41, autor: "Mono Inc.", nombre: "Voices of Doom", archivo: "/", idAlbum: 11 });
-                almacenPista.add({ id: 42, autor: "Mono Inc.", nombre: "Gothic Queen", archivo: "/", idAlbum: 11 });
-                almacenPista.add({ id: 43, autor: "Mono Inc.", nombre: "Pain", archivo: "/", idAlbum: 11 });
-                almacenPista.add({ id: 44, autor: "Mono Inc.", nombre: "If I Fail", archivo: "/", idAlbum: 11 });
-                almacenPista.add({ id: 45, autor: "Mono Inc.", nombre: "Admiration Hill", archivo: "/", idAlbum: 12 });
-                almacenPista.add({ id: 46, autor: "Mono Inc.", nombre: "Symphony Of Pain", archivo: "/", idAlbum: 12 });
-                almacenPista.add({ id: 47, autor: "Mono Inc.", nombre: "A Love That Never Dies", archivo: "/", idAlbum: 12 });
-                almacenPista.add({ id: 48, autor: "Mono Inc.", nombre: "Viva Hades", archivo: "/", idAlbum: 12 });
-                almacenPista.add({ id: 49, autor: "Mono Inc.", nombre: "My Worst Enemy", archivo: "/", idAlbum: 13 });
-                almacenPista.add({ id: 50, autor: "Mono Inc.", nombre: "No More Fear", archivo: "/", idAlbum: 13 });
-                almacenPista.add({ id: 51, autor: "Mono Inc.", nombre: "After The War", archivo: "/", idAlbum: 13 });
-                almacenPista.add({ id: 52, autor: "Mono Inc.", nombre: "Wave No Flag", archivo: "/", idAlbum: 13 });
-                almacenPista.add({ id: 53, autor: "Mono Inc.", nombre: "Heile, Heile Segen", archivo: "/", idAlbum: 14 });
-                almacenPista.add({ id: 54, autor: "Mono Inc.", nombre: "Seligkeit", archivo: "/", idAlbum: 14 });
-                almacenPista.add({ id: 55, autor: "Mono Inc.", nombre: "My Deal With God", archivo: "/", idAlbum: 14 });
-                almacenPista.add({ id: 56, autor: "Mono Inc.", nombre: "Kein Weg Zu Weit", archivo: "/", idAlbum: 14 });
-                almacenPista.add({ id: 57, autor: "Mono Inc.", nombre: "Mondschein", archivo: "/", idAlbum: 15 });
-                almacenPista.add({ id: 58, autor: "Mono Inc.", nombre: "Never-Ending Love Song", archivo: "/", idAlbum: 15 });
-                almacenPista.add({ id: 59, autor: "Mono Inc.", nombre: "Heiland", archivo: "/", idAlbum: 15 });
-                almacenPista.add({ id: 60, autor: "Mono Inc.", nombre: "It Never Rains", archivo: "/", idAlbum: 15 });
-                almacenPista.add({ id: 61, autor: "Mono Inc.", nombre: "The Banks of Eden", archivo: "/", idAlbum: 16 });
-                almacenPista.add({ id: 62, autor: "Mono Inc.", nombre: "Together Till The End", archivo: "/", idAlbum: 16 });
-                almacenPista.add({ id: 63, autor: "Mono Inc.", nombre: "Boatman", archivo: "/", idAlbum: 16 });
-                almacenPista.add({ id: 64, autor: "Mono Inc.", nombre: "Out In The Fields", archivo: "/", idAlbum: 16 });
-                almacenPista.add({ id: 65, autor: "Mono Inc.", nombre: "The Heart Of The Raven", archivo: "/", idAlbum: 17 });
-                almacenPista.add({ id: 66, autor: "Mono Inc.", nombre: "Welcome To Hell", archivo: "/", idAlbum: 17 });
-                almacenPista.add({ id: 67, autor: "Mono Inc.", nombre: "Long Live Death", archivo: "/", idAlbum: 17 });
-                almacenPista.add({ id: 68, autor: "Mono Inc.", nombre: "Risk It All", archivo: "/", idAlbum: 17 });
-                almacenPista.add({ id: 69, autor: "Mono Inc.", nombre: "The Book Of Fire", archivo: "/", idAlbum: 18 });
-                almacenPista.add({ id: 70, autor: "Mono Inc.", nombre: "Louder Than Hell", archivo: "/", idAlbum: 18 });
-                almacenPista.add({ id: 71, autor: "Mono Inc.", nombre: "Warriors", archivo: "/", idAlbum: 18 });
-                almacenPista.add({ id: 72, autor: "Mono Inc.", nombre: "Shining Light", archivo: "/", idAlbum: 18 });
-                //Lord of the Lost
-                almacenPista.add({ id: 73, autor: "Lord of the Lost", nombre: "Last Words", archivo: "/", idAlbum: 19 });
-                almacenPista.add({ id: 74, autor: "Lord of the Lost", nombre: "Break Your Heart", archivo: "/", idAlbum: 19 });
-                almacenPista.add({ id: 75, autor: "Lord of the Lost", nombre: "Dry The Rain", archivo: "/", idAlbum: 19 });
-                almacenPista.add({ id: 76, autor: "Lord of the Lost", nombre: "My Deepest Fear", archivo: "/", idAlbum: 19 });
-                almacenPista.add({ id: 77, autor: "Lord of the Lost", nombre: "Preludium: About Love, Death & The Devil", archivo: "/", idAlbum: 20 });
-                almacenPista.add({ id: 78, autor: "Lord of the Lost", nombre: "We Are The Lost", archivo: "/", idAlbum: 20 });
-                almacenPista.add({ id: 79, autor: "Lord of the Lost", nombre: "Sex On Legs", archivo: "/", idAlbum: 20 });
-                almacenPista.add({ id: 80, autor: "Lord of the Lost", nombre: "Fragmenting Façade", archivo: "/", idAlbum: 20 });
-                almacenPista.add({ id: 81, autor: "Lord of the Lost", nombre: "Live Today", archivo: "/", idAlbum: 21 });
-                almacenPista.add({ id: 82, autor: "Lord of the Lost", nombre: "Die Tomorrow", archivo: "/", idAlbum: 21 });
-                almacenPista.add({ id: 83, autor: "Lord of the Lost", nombre: "Black Lolita", archivo: "/", idAlbum: 21 });
-                almacenPista.add({ id: 84, autor: "Lord of the Lost", nombre: "Blood For Blood", archivo: "/", idAlbum: 21 });
-                almacenPista.add({ id: 85, autor: "Lord of the Lost", nombre: "Fists Up In The Air", archivo: "/", idAlbum: 22 });
-                almacenPista.add({ id: 86, autor: "Lord of the Lost", nombre: "Kingdom Come", archivo: "/", idAlbum: 22 });
-                almacenPista.add({ id: 87, autor: "Lord of the Lost", nombre: "La Bomba", archivo: "/", idAlbum: 22 });
-                almacenPista.add({ id: 88, autor: "Lord of the Lost", nombre: "Afterlife", archivo: "/", idAlbum: 22 });
-                almacenPista.add({ id: 89, autor: "Lord of the Lost", nombre: "Miss Machine", archivo: "/", idAlbum: 23 });
-                almacenPista.add({ id: 90, autor: "Lord of the Lost", nombre: "Drag Me To Hell", archivo: "/", idAlbum: 23 });
-                almacenPista.add({ id: 91, autor: "Lord of the Lost", nombre: "The Love Of God", archivo: "/", idAlbum: 23 });
-                almacenPista.add({ id: 92, autor: "Lord of the Lost", nombre: "Raining Stars", archivo: "/", idAlbum: 23 });
-                almacenPista.add({ id: 93, autor: "Lord of the Lost", nombre: "On This Rock I Will Build My Church", archivo: "/", idAlbum: 24 });
-                almacenPista.add({ id: 94, autor: "Lord of the Lost", nombre: "Loreley", archivo: "/", idAlbum: 24 });
-                almacenPista.add({ id: 95, autor: "Lord of the Lost", nombre: "Black Halo", archivo: "/", idAlbum: 24 });
-                almacenPista.add({ id: 96, autor: "Lord of the Lost", nombre: "In Our Hands", archivo: "/", idAlbum: 24 });
-                //Jinjer
-                almacenPista.add({ id: 97, autor: "Jinjer", nombre: "Until The End", archivo: "/", idAlbum: 25 });
-                almacenPista.add({ id: 98, autor: "Jinjer", nombre: "Waltz", archivo: "/", idAlbum: 25 });
-                almacenPista.add({ id: 99, autor: "Jinjer", nombre: "Scissors", archivo: "/", idAlbum: 25 });
-                almacenPista.add({ id: 100, autor: "Jinjer", nombre: "Exposed As A Liar", archivo: "/", idAlbum: 25 });
-                almacenPista.add({ id: 101, autor: "Jinjer", nombre: "Outlander", archivo: "/", idAlbum: 26 });
-                almacenPista.add({ id: 102, autor: "Jinjer", nombre: "A Plus Or A Minus", archivo: "/", idAlbum: 26 });
-                almacenPista.add({ id: 103, autor: "Jinjer", nombre: "No Hoard Of Value", archivo: "/", idAlbum: 26 });
-                almacenPista.add({ id: 104, autor: "Jinjer", nombre: "Cloud Factory", archivo: "/", idAlbum: 26 });
-                almacenPista.add({ id: 105, autor: "Jinjer", nombre: "Prologue", archivo: "/", idAlbum: 27 });
-                almacenPista.add({ id: 106, autor: "Jinjer", nombre: "Captains Clock", archivo: "/", idAlbum: 27 });
-                almacenPista.add({ id: 107, autor: "Jinjer", nombre: "Words Of Wisdom", archivo: "/", idAlbum: 27 });
-                almacenPista.add({ id: 108, autor: "Jinjer", nombre: "Just Another", archivo: "/", idAlbum: 27 });
-                almacenPista.add({ id: 109, autor: "Jinjer", nombre: "On The Top", archivo: "/", idAlbum: 28 });
-                almacenPista.add({ id: 110, autor: "Jinjer", nombre: "Pit Of Consciousness", archivo: "/", idAlbum: 28 });
-                almacenPista.add({ id: 111, autor: "Jinjer", nombre: "Judgement (& Punishment)", archivo: "/", idAlbum: 28 });
-                almacenPista.add({ id: 112, autor: "Jinjer", nombre: "Retrospection", archivo: "/", idAlbum: 28 });
+                almacenPista.add({ id: 1, autor: "Desakato", nombre: "Ritcher 7.5", archivo: "media/Desakato/Desakato - Con El Viento De Cara/01- Ritcher 7'5.mp3", idAlbum: 1 });
+                almacenPista.add({ id: 2, autor: "Desakato", nombre: "Los mineros", archivo: "media/Desakato/Desakato - Con El Viento De Cara/02- Los Mineros.mp3", idAlbum: 1 });
+                almacenPista.add({ id: 3, autor: "Desakato", nombre: "Tu disfraz", archivo: "media/Desakato/Desakato - Con El Viento De Cara/03- Tu Disfraz.mp3", idAlbum: 1 });
+                almacenPista.add({ id: 4, autor: "Desakato", nombre: "Contra el dolor", archivo: "media/Desakato/Desakato - Con El Viento De Cara/04- Contra El Dolor.mp3", idAlbum: 1 });
+                almacenPista.add({ id: 5, autor: "Desakato", nombre: "África", archivo: "media/Desakato/Desakato - Miseria,Sangre y Plomo/01 - Desakato - África.mp3", idAlbum: 2 });
+                almacenPista.add({ id: 6, autor: "Desakato", nombre: "En el Ojo Ajerno", archivo: "media/Desakato/Desakato - Miseria,Sangre y Plomo/02 - Desakato - En el ojo ajeno.mp3", idAlbum: 2 });
+                almacenPista.add({ id: 7, autor: "Desakato", nombre: "Cada Vez", archivo: "media/Desakato/Desakato - Miseria,Sangre y Plomo/03 - Desakato - Cada vez.mp3", idAlbum: 2 });
+                almacenPista.add({ id: 8, autor: "Desakato", nombre: "Contra la Pared", archivo: "media/Desakato/Desakato - Miseria,Sangre y Plomo/04 - Desakato - Contra la pared.mp3", idAlbum: 2 });
+                almacenPista.add({ id: 9, autor: "Desakato", nombre: "...", archivo: "media/Desakato/Desakato - Inercia/01 - Desakato - ....mp3", idAlbum: 3 });
+                almacenPista.add({ id: 10, autor: "Desakato", nombre: "Iceberg", archivo: "media/Desakato/Desakato - Inercia/01 - Desakato - ....mp3", idAlbum: 3 });
+                almacenPista.add({ id: 11, autor: "Desakato", nombre: "R.I.P.", archivo: "media/Desakato/Desakato - Inercia/03 - Desakato - R.I.P..mp3", idAlbum: 3 });
+                almacenPista.add({ id: 12, autor: "Desakato", nombre: "Cuando Salga el Sol", archivo: "media/Desakato/Desakato - Inercia/04 - Desakato - Cuando salga el sol.mp3", idAlbum: 3 });
+                almacenPista.add({ id: 13, autor: "Desakato", nombre: "Estepa", archivo: "media/Desakato/Desakato - Buen Viaje/01. Desakato - Estepa.mp3", idAlbum: 4 });
+                almacenPista.add({ id: 14, autor: "Desakato", nombre: "Héroes", archivo: "media/Desakato/Desakato - Buen Viaje/02. Desakato - Héroes.mp3", idAlbum: 4 });
+                almacenPista.add({ id: 15, autor: "Desakato", nombre: "La Tormenta", archivo: "media/Desakato/Desakato - Buen Viaje/03. Desakato - La Tormenta.mp3", idAlbum: 4 });
+                almacenPista.add({ id: 16, autor: "Desakato", nombre: "Pánico en Frankfurt", archivo: "media/Desakato/Desakato - Buen Viaje/04. Desakato - Pánico en Frankfurt.mp3", idAlbum: 4 });
+                almacenPista.add({ id: 17, autor: "Desakato", nombre: "Tiempos de Cobardes", archivo: "media/Desakato/Desakato - La Teoría del Fuego/01. Desakato - Tiempo de cobardes.mp3", idAlbum: 5 });
+                almacenPista.add({ id: 18, autor: "Desakato", nombre: "Animales Hambrientos", archivo: "media/Desakato/Desakato - La Teoría del Fuego/01. Desakato - Tiempo de cobardes.mp3", idAlbum: 5 });
+                almacenPista.add({ id: 19, autor: "Desakato", nombre: "Estigma", archivo: "media/Desakato/Desakato - La Teoría del Fuego/03. Desakato - Estigma.mp3", idAlbum: 5 });
+                almacenPista.add({ id: 20, autor: "Desakato", nombre: "Heridas Abiertas", archivo: "media/Desakato/Desakato - La Teoría del Fuego/04. Desakato - Heridas abiertas.mp3", idAlbum: 5 });
+                almacenPista.add({ id: 21, autor: "Desakato", nombre: "Humo Negro", archivo: "media/Desakato/Desakato - Antártida/01- Humo Negro.mp3", idAlbum: 6 });
+                almacenPista.add({ id: 22, autor: "Desakato", nombre: "Salvajes", archivo: "media/Desakato/Desakato - Antártida/02- Salvajes.mp3", idAlbum: 6 });
+                almacenPista.add({ id: 23, autor: "Desakato", nombre: "La Cura", archivo: "media/Desakato/Desakato - Antártida/03- La Cura.mp3", idAlbum: 6 });
+                almacenPista.add({ id: 24, autor: "Desakato", nombre: "Huellas", archivo: "media/Desakato/Desakato - Antártida/04- Huellas.mp3", idAlbum: 6 });
+                almacenPista.add({ id: 25, autor: "Desakato", nombre: "Apátridas", archivo: "media/Desakato/Desakato - La Miel de las Flores Muertas/01. Desakato - Apátridas.mp3", idAlbum: 7 });
+                almacenPista.add({ id: 26, autor: "Desakato", nombre: "Hipnotizados", archivo: "media/Desakato/Desakato - La Miel de las Flores Muertas/02. Desakato - Hipnotizados.mp3", idAlbum: 7 });
+                almacenPista.add({ id: 27, autor: "Desakato", nombre: "Nuestro Legado", archivo: "media/Desakato/Desakato - La Miel de las Flores Muertas/03. Desakato - Nuestro Legado.mp3", idAlbum: 7 });
+                almacenPista.add({ id: 28, autor: "Desakato", nombre: "Elegante Entierro", archivo: "media/Desakato/Desakato - La Miel de las Flores Muertas/04. Desakato - Elegante Entierro.mp3", idAlbum: 7 });
                 //La Raíz
-                almacenPista.add({ id: 113, autor: "La Raíz", nombre: "Intro", archivo: "/", idAlbum: 29 });
-                almacenPista.add({ id: 114, autor: "La Raíz", nombre: "Malos Tiempos", archivo: "/", idAlbum: 29 });
-                almacenPista.add({ id: 115, autor: "La Raíz", nombre: "Pobre Manuel", archivo: "/", idAlbum: 29 });
-                almacenPista.add({ id: 116, autor: "La Raíz", nombre: "África", archivo: "/", idAlbum: 29 });
-                almacenPista.add({ id: 117, autor: "La Raíz", nombre: "El Lado de los Rebeldes", archivo: "/", idAlbum: 30 });
-                almacenPista.add({ id: 118, autor: "La Raíz", nombre: "La Voz", archivo: "/", idAlbum: 30 });
-                almacenPista.add({ id: 119, autor: "La Raíz", nombre: "De Mar en Mar", archivo: "/", idAlbum: 30 });
-                almacenPista.add({ id: 120, autor: "La Raíz", nombre: "Noches en Babilón", archivo: "/", idAlbum: 30 });
-                almacenPista.add({ id: 121, autor: "La Raíz", nombre: "Jilgueros", archivo: "/", idAlbum: 31 });
-                almacenPista.add({ id: 122, autor: "La Raíz", nombre: "Nuestra Nación", archivo: "/", idAlbum: 31 });
-                almacenPista.add({ id: 123, autor: "La Raíz", nombre: "A la Sombra de la Sierra", archivo: "/", idAlbum: 31 });
-                almacenPista.add({ id: 124, autor: "La Raíz", nombre: "Llueve en Semana Santa", archivo: "/", idAlbum: 31 });
-                almacenPista.add({ id: 125, autor: "La Raíz", nombre: "Intro 'Las Miserias de sus Crímenes'", archivo: "/", idAlbum: 32 });
-                almacenPista.add({ id: 126, autor: "La Raíz", nombre: "Entre Poetas y Presos", archivo: "/", idAlbum: 32 });
-                almacenPista.add({ id: 127, autor: "La Raíz", nombre: "Rueda la Corona", archivo: "/", idAlbum: 32 });
-                almacenPista.add({ id: 128, autor: "La Raíz", nombre: "Por Favor", archivo: "/", idAlbum: 32 });
-                almacenPista.add({ id: 129, autor: "La Raíz", nombre: "Intro 'Las Miserias de sus Crímenes'", archivo: "/", idAlbum: 33 });
-                almacenPista.add({ id: 130, autor: "La Raíz", nombre: "Entre Poetas y Presos", archivo: "/", idAlbum: 33 });
-                almacenPista.add({ id: 131, autor: "La Raíz", nombre: "Borracha y Callejera", archivo: "/", idAlbum: 33 });
-                almacenPista.add({ id: 132, autor: "La Raíz", nombre: "La Voz", archivo: "/", idAlbum: 33 });
-                //Extremoduro
-                almacenPista.add({ id: 133, autor: "Extremoduro", nombre: "Extremaydura", archivo: "/", idAlbum: 34 });
-                almacenPista.add({ id: 134, autor: "Extremoduro", nombre: "Emparedado", archivo: "/", idAlbum: 34 });
-                almacenPista.add({ id: 135, autor: "Extremoduro", nombre: "Decidí", archivo: "/", idAlbum: 34 });
-                almacenPista.add({ id: 136, autor: "Extremoduro", nombre: "Romperás", archivo: "/", idAlbum: 34 });
-                almacenPista.add({ id: 137, autor: "Extremoduro", nombre: "Tu Corazón", archivo: "/", idAlbum: 35 });
-                almacenPista.add({ id: 138, autor: "Extremoduro", nombre: "La Canción De Los Oficios", archivo: "/", idAlbum: 35 });
-                almacenPista.add({ id: 139, autor: "Extremoduro", nombre: "Quemando Tus Recuerdos", archivo: "/", idAlbum: 35 });
-                almacenPista.add({ id: 140, autor: "Extremoduro", nombre: "V Centenario", archivo: "/", idAlbum: 35 });
-                almacenPista.add({ id: 141, autor: "Extremoduro", nombre: "Sol De Invierno", archivo: "/", idAlbum: 36 });
-                almacenPista.add({ id: 142, autor: "Extremoduro", nombre: "De Acero", archivo: "/", idAlbum: 36 });
-                almacenPista.add({ id: 143, autor: "Extremoduro", nombre: "Última Generación", archivo: "/", idAlbum: 36 });
-                almacenPista.add({ id: 144, autor: "Extremoduro", nombre: "Lucha Contigo", archivo: "/", idAlbum: 36 });
-                almacenPista.add({ id: 145, autor: "Extremoduro", nombre: "El Duende Del Parque", archivo: "/", idAlbum: 37 });
-                almacenPista.add({ id: 146, autor: "Extremoduro", nombre: "No Me Calientes Que Me Hundo", archivo: "/", idAlbum: 37 });
-                almacenPista.add({ id: 147, autor: "Extremoduro", nombre: "Sin Dios Ni Amo", archivo: "/", idAlbum: 37 });
-                almacenPista.add({ id: 148, autor: "Extremoduro", nombre: "Pepe Botika (¿Dónde Están Mis Amigos?)", archivo: "/", idAlbum: 37 });
-                almacenPista.add({ id: 149, autor: "Extremoduro", nombre: "Pedrá", archivo: "/", idAlbum: 38 });
-                almacenPista.add({ id: 150, autor: "Extremoduro", nombre: "Buscando Una Luna", archivo: "/", idAlbum: 39 });
-                almacenPista.add({ id: 151, autor: "Extremoduro", nombre: "Prometeo", archivo: "/", idAlbum: 39 });
-                almacenPista.add({ id: 152, autor: "Extremoduro", nombre: "Sucede", archivo: "/", idAlbum: 39 });
-                almacenPista.add({ id: 153, autor: "Extremoduro", nombre: "So Payaso", archivo: "/", idAlbum: 39 });
-                almacenPista.add({ id: 154, autor: "Extremoduro", nombre: "Salir", archivo: "/", idAlbum: 40 });
-                almacenPista.add({ id: 155, autor: "Extremoduro", nombre: "Esclarecido", archivo: "/", idAlbum: 40 });
-                almacenPista.add({ id: 156, autor: "Extremoduro", nombre: "Érase Una Vez", archivo: "/", idAlbum: 40 });
-                almacenPista.add({ id: 157, autor: "Extremoduro", nombre: "Golfa", archivo: "/", idAlbum: 40 });
-                almacenPista.add({ id: 158, autor: "Extremoduro", nombre: "A Fuego", archivo: "/", idAlbum: 41 });
-                almacenPista.add({ id: 159, autor: "Extremoduro", nombre: "La Vereda De La Puerta De Atrás", archivo: "/", idAlbum: 41 });
-                almacenPista.add({ id: 160, autor: "Extremoduro", nombre: "Hoy Te La Meto Hasta Las Orejas", archivo: "/", idAlbum: 41 });
-                almacenPista.add({ id: 161, autor: "Extremoduro", nombre: "Standby", archivo: "/", idAlbum: 41 });
-                almacenPista.add({ id: 162, autor: "Extremoduro", nombre: "Dulce Introducción Al Caos", archivo: "/", idAlbum: 42 });
-                almacenPista.add({ id: 163, autor: "Extremoduro", nombre: "Primer Movimiento: El Sueño", archivo: "/", idAlbum: 42 });
-                almacenPista.add({ id: 164, autor: "Extremoduro", nombre: "Segundo Movimiento: Lo De Fuera", archivo: "/", idAlbum: 42 });
-                almacenPista.add({ id: 165, autor: "Extremoduro", nombre: "Tercer Movimiento: Lo De Dentro", archivo: "/", idAlbum: 42 });
-                almacenPista.add({ id: 166, autor: "Extremoduro", nombre: "Desarraigo", archivo: "/", idAlbum: 43 });
-                almacenPista.add({ id: 167, autor: "Extremoduro", nombre: "Mi Espíritu Imperecedero", archivo: "/", idAlbum: 43 });
-                almacenPista.add({ id: 168, autor: "Extremoduro", nombre: "Otra Inútil Canción Para La Paz", archivo: "/", idAlbum: 43 });
-                almacenPista.add({ id: 169, autor: "Extremoduro", nombre: "Si Te Vas...", archivo: "/", idAlbum: 43 });
-                almacenPista.add({ id: 170, autor: "Extremoduro", nombre: "Locura Transitoria", archivo: "/", idAlbum: 44 });
-                almacenPista.add({ id: 171, autor: "Extremoduro", nombre: "Entre Interiores", archivo: "/", idAlbum: 44 });
-                almacenPista.add({ id: 172, autor: "Extremoduro", nombre: "¡Qué Borde Era Mi Valle!", archivo: "/", idAlbum: 44 });
-                almacenPista.add({ id: 173, autor: "Extremoduro", nombre: "Poema Sobrecogido", archivo: "/", idAlbum: 44 });
+                almacenPista.add({ id: 29, autor: "La Raíz", nombre: "Intro", archivo: "media/La Raíz/La Raiz - Guerra al Silencio/01. Intro.mp3", idAlbum: 8 });
+                almacenPista.add({ id: 30, autor: "La Raíz", nombre: "Malos Tiempos", archivo: "media/La Raíz/La Raiz - Guerra al Silencio/02. Malos Tiempos.mp3", idAlbum: 8 });
+                almacenPista.add({ id: 31, autor: "La Raíz", nombre: "Pobre Manuel", archivo: "media/La Raíz/La Raiz - Guerra al Silencio/03. Pobre Manuel.mp3", idAlbum: 8 });
+                almacenPista.add({ id: 32, autor: "La Raíz", nombre: "África", archivo: "media/La Raíz/La Raiz - Guerra al Silencio/04. África.mp3", idAlbum: 8 });
+                almacenPista.add({ id: 33, autor: "La Raíz", nombre: "El Lado de los Rebeldes", archivo: "media/La Raíz/La Raiz - El Lado de los Rebeldes/01. El Lado de los Rebeldes.mp3", idAlbum: 9 });
+                almacenPista.add({ id: 34, autor: "La Raíz", nombre: "La Voz", archivo: "media/La Raíz/La Raiz - El Lado de los Rebeldes/02. La Voz.mp3", idAlbum: 9 });
+                almacenPista.add({ id: 35, autor: "La Raíz", nombre: "De Mar en Mar", archivo: "media/La Raíz/La Raiz - El Lado de los Rebeldes/03. De Mar en Mar.mp3", idAlbum: 9 });
+                almacenPista.add({ id: 36, autor: "La Raíz", nombre: "Noches en Babilón", archivo: "media/La Raíz/La Raiz - El Lado de los Rebeldes/04. Noches en Babylon.mp3", idAlbum: 9 });
+                almacenPista.add({ id: 37, autor: "La Raíz", nombre: "Jilgueros", archivo: "media/La Raíz/La Raiz - Así en el Cielo como en la Selva/01. Jilgueros.mp3", idAlbum: 10 });
+                almacenPista.add({ id: 38, autor: "La Raíz", nombre: "Nuestra Nación", archivo: "media/La Raíz/La Raiz - Así en el Cielo como en la Selva/02. Nuestra Nación.mp3", idAlbum: 10 });
+                almacenPista.add({ id: 39, autor: "La Raíz", nombre: "A la Sombra de la Sierra", archivo: "media/La Raíz/La Raiz - Así en el Cielo como en la Selva/03. A la Sombra de la Sierra.mp3", idAlbum: 10 });
+                almacenPista.add({ id: 40, autor: "La Raíz", nombre: "Llueve en Semana Santa", archivo: "media/La Raíz/La Raiz - Así en el Cielo como en la Selva/04. Llueve en Semana Santa.mp3", idAlbum: 10 });
+                almacenPista.add({ id: 41, autor: "La Raíz", nombre: "Intro 'Las Miserias de sus Crímenes'", archivo: "media/La Raíz/La Raiz - Entre Poetas y Presos/01. Intro - Las Miserias de Sus Crímenes.mp3", idAlbum: 11 });
+                almacenPista.add({ id: 42, autor: "La Raíz", nombre: "Entre Poetas y Presos", archivo: "media/La Raíz/La Raiz - Entre Poetas y Presos/02. Entre Poetas y Presos.mp3", idAlbum: 11 });
+                almacenPista.add({ id: 43, autor: "La Raíz", nombre: "Rueda la Corona", archivo: "media/La Raíz/La Raiz - Entre Poetas y Presos/03. Rueda la Corona.mp3", idAlbum: 11 });
+                almacenPista.add({ id: 44, autor: "La Raíz", nombre: "Por Favor", archivo: "media/La Raíz/La Raiz - Entre Poetas y Presos/04. Por Favor.mp3", idAlbum: 11 });
+                //Thirty Seconds To Mars
+                almacenPista.add({ id: 45, autor: "Thirty Seconds To Mars", nombre: "Attack", archivo: "media/Thirty Seconds To Mars/30 Seconds to Mars  - A Beautiful Lie/01. Attack .mp3", idAlbum: 12 });
+                almacenPista.add({ id: 46, autor: "Thirty Seconds To Mars", nombre: "A beautiful lie", archivo: "media/Thirty Seconds To Mars/30 Seconds to Mars  - A Beautiful Lie/02. A beautiful lie .mp3", idAlbum: 12 });
+                almacenPista.add({ id: 47, autor: "Thirty Seconds To Mars", nombre: "The kill", archivo: "media/Thirty Seconds To Mars/30 Seconds to Mars  - A Beautiful Lie/03. The kill .mp3", idAlbum: 12 });
+                almacenPista.add({ id: 48, autor: "Thirty Seconds To Mars", nombre: "Was it a dream", archivo: "media/Thirty Seconds To Mars/30 Seconds to Mars  - A Beautiful Lie/04. Was it a dream.mp3", idAlbum: 12 });
+                almacenPista.add({ id: 49, autor: "Thirty Seconds To Mars", nombre: "Escape", archivo: "media/Thirty Seconds To Mars/30 Seconds to Mars  - This Is War/01. Escape.mp3", idAlbum: 13 });
+                almacenPista.add({ id: 50, autor: "Thirty Seconds To Mars", nombre: "Night of the hunter", archivo: "media/Thirty Seconds To Mars/30 Seconds to Mars  - This Is War/02. Night of the hunter.mp3", idAlbum: 13 });
+                almacenPista.add({ id: 51, autor: "Thirty Seconds To Mars", nombre: "Kings and queens", archivo: "media/Thirty Seconds To Mars/30 Seconds to Mars  - This Is War/03. Kings and queens.mp3", idAlbum: 13 });
+                almacenPista.add({ id: 52, autor: "Thirty Seconds To Mars", nombre: "This is war", archivo: "media/Thirty Seconds To Mars/30 Seconds to Mars  - This Is War/04. This is war.mp3", idAlbum: 13 });
+                //The Offspring
+                almacenPista.add({ id: 53, autor: "The Offspring", nombre: "Disclaimer", archivo: "media/The Offspring/The Offspring - Ixnay On The Hombre/01 - Disclaimer.mp3", idAlbum: 14 });
+                almacenPista.add({ id: 54, autor: "The Offspring", nombre: "The Meaning Of Life", archivo: "media/The Offspring/The Offspring - Ixnay On The Hombre/02 - The Meaning Of Life.mp3", idAlbum: 14 });
+                almacenPista.add({ id: 55, autor: "The Offspring", nombre: "Mota", archivo: "media/The Offspring/The Offspring - Ixnay On The Hombre/03 - Mota.mp3", idAlbum: 14 });
+                almacenPista.add({ id: 56, autor: "The Offspring", nombre: "Me & My Old Lady", archivo: "media/The Offspring/The Offspring - Ixnay On The Hombre/04 - Me & My Old Lady.mp3", idAlbum: 14 });
+                almacenPista.add({ id: 57, autor: "The Offspring", nombre: "Time To Relax", archivo: "media/The Offspring/The Offspring - Smash/01 - Time To Relax.mp3", idAlbum: 15 });
+                almacenPista.add({ id: 58, autor: "The Offspring", nombre: "Nitro (Youth Energy)", archivo: "media/The Offspring/The Offspring - Smash/02 - Nitro (Youth Energy).mp3", idAlbum: 15 });
+                almacenPista.add({ id: 59, autor: "The Offspring", nombre: "Bad Habit", archivo: "media/The Offspring/The Offspring - Smash/03 - Bad Habit.mp3", idAlbum: 15 });
+                almacenPista.add({ id: 60, autor: "The Offspring", nombre: "Gotta Get Away", archivo: "media/The Offspring/The Offspring - Smash/04 - Gotta Get Away.mp3", idAlbum: 15 });
 
                 /*************** LISTA *************/
+                //Desakato
                 almacenLista = transaccion.objectStore("lista");
-                almacenLista.add({ id: 1, autor: "Desakato", nombre: "Desakato - Favoritas", fecha: new Date().toLocaleDateString(), pistas: "5,6,7,8,10,12,13,14,15,17,19,22,25" });
+                almacenLista.add({ id: 1, autor: "Desakato", nombre: "Desakato - Favoritas", fecha: new Date().toLocaleDateString(), pistas: "5,6,7,8,10,12" });
+                almacenLista.add({ id: 2, autor: "Desakato", nombre: "Desakato - Favoritas v2", fecha: new Date().toLocaleDateString(), pistas: "12,13,14,19,22,25" });
+                //La Raíz
+                almacenLista.add({ id: 3, autor: "La Raíz", nombre: "La Raíz", fecha: new Date().toLocaleDateString(), pistas: "29,31,35,37,41" });
+                almacenLista.add({ id: 4, autor: "La Raíz", nombre: "La Raíz v2", fecha: new Date().toLocaleDateString(), pistas: "30,32,35,38,40" });
+                //Thirty Seconds To Mars
+                almacenLista.add({ id: 5, autor: "Thirty Seconds To Mars", nombre: "Thirty Seconds To Mars - Favoritas", fecha: new Date().toLocaleDateString(), pistas: "45,46,48,50,52" });
+                //The Offspring
+
             };
 
             peticion.onerror = function (evento) {
@@ -302,7 +161,7 @@
                 almacenAutor = bd.createObjectStore("autor", { keyPath: "id", autoIncrement: true });
 
                 /***** Tabla almacenConcierto *****/
-                almacenConcierto = bd.createObjectStore("concierto", { keyPath: "id", autoIncrement: true });
+                /*almacenConcierto = bd.createObjectStore("concierto", { keyPath: "id", autoIncrement: true });*/
 
                 /**** Tabla almacenAlbum ****/
                 almacenAlbum = bd.createObjectStore("album", { keyPath: "id", autoIncrement: true });
@@ -331,13 +190,6 @@
                 almacenAlbum.createIndex("por_nombre", "nombre");
                 almacenAlbum.createIndex("por_lanzamiento", "lanzamiento");
                 almacenAlbum.createIndex("por_caratula", "caratula");
-
-                almacenConcierto.createIndex("por_id", "id", { unique: true });
-                almacenConcierto.createIndex("por_autor", "autor");
-                almacenConcierto.createIndex("por_nombre", "nombre");
-                almacenConcierto.createIndex("por_latitud", "latitud");
-                almacenConcierto.createIndex("por_longitud", "longitud");
-                almacenConcierto.createIndex("por_fecha", "fecha");
 
                 almacenPista.createIndex("por_id", "id", { unique: true });
                 almacenPista.createIndex("por_autor", "autor");
