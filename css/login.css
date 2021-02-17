@@ -33,12 +33,23 @@ body {
     margin: 20px 10px 20px;
 }
 
-.input-field input, button {
+.input-field input:not([type=checkbox]), button {
     width: 200px;
     text-align: center;
     padding: 5px;
     margin: 5px;
     font-size: medium;
+}
+
+.check{
+    padding: 5px;
+    margin: 5px;
+    margin-left: 64px;
+    text-align: left;
+}
+
+.check input{
+    margin-right: 10px;
 }
 
 button {
@@ -87,3 +98,4 @@ hr {
 input[type=text]:focus, input[type=password]:focus {
     background-color: #ddd;
 }
+

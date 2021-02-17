@@ -1,4 +1,4 @@
-function header() {
+function header(origen) {
     var header = document.getElementById("header");
 
     var container = document.createElement("div");
@@ -29,6 +29,7 @@ function header() {
     $(function () {
         $("#resultado").hide();
     })
+
     var form = document.createElement("form");
     search.appendChild(form);
 
@@ -50,11 +51,17 @@ function header() {
 
     if (localStorage.getItem("idUser") != undefined && localStorage.getItem("idUser") != "") {
         var nodoEnlace = document.createElement("a");
-        nodoEnlace.href = "cuenta.html";
-
-        var texto = document.createTextNode("Mi Cuenta");
-        nodoEnlace.appendChild(texto);
-
+        if (origen != "cuenta") {
+            nodoEnlace.href = "cuenta.html";
+            nodoEnlace.innerText="Mi Cuenta";
+        } else {
+            nodoEnlace.href = "index.html";
+            nodoEnlace.innerText="Cerrar Sesión";
+            nodoEnlace.addEventListener("click",function(){
+                localStorage.removeItem("idUser");
+                localStorage.removeItem("user");
+            });
+        }
         head.appendChild(nodoEnlace);
     } else {
         var nodoEnlace = document.createElement("a");
@@ -66,8 +73,8 @@ function header() {
         head.appendChild(nodoEnlace);
     }
 
-    if (localStorage.getItem("buscador") != undefined) {
-        localStorage.removeItem("buscador");
+    if (sessionStorage.getItem("buscador") != undefined) {
+        sessionStorage.removeItem("buscador");
     }
     cargar("album", "buscador");
     cargar("autor", "buscador");
@@ -78,8 +85,8 @@ function header() {
 function jsonSearch(array, tabla) {
     //console.log(array);
     var obj = [];
-    if (localStorage.getItem("buscador") != undefined) {
-        obj = JSON.parse(localStorage.getItem("buscador"));
+    if (sessionStorage.getItem("buscador") != undefined) {
+        obj = JSON.parse(sessionStorage.getItem("buscador"));
     }
 
     array.forEach(x => {
@@ -92,5 +99,5 @@ function jsonSearch(array, tabla) {
                 break;
         }
     })
-    localStorage.setItem("buscador", JSON.stringify(obj));
+    sessionStorage.setItem("buscador", JSON.stringify(obj));
 }

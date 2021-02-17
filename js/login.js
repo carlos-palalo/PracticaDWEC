@@ -3,7 +3,12 @@ function codigo() {
     if (localStorage.getItem("idUser") != undefined && localStorage.getItem("idUser") != "") {
         window.location.href = "index.html";
     }
-
+    var cookieUser = leerCookie("user");
+    if (cookieUser != "") {
+        document.getElementById("email-l").value = cookieUser;
+    } else {
+        document.getElementById("email-l").value = "";
+    }
     var btn_ini = document.getElementById("btn-ini");
     var btn_reg = document.getElementById("btn-reg");
     var inicio = document.getElementById("inicio");
@@ -28,6 +33,7 @@ function codigo() {
 
 
 }
+
 function loginRegister(e) {
     var pass_r = document.getElementById("pass-r").value;
     var confirm_r = document.getElementById("confirm-r").value;
@@ -90,11 +96,23 @@ function loginRegister(e) {
 function login(autor) {
     var email_l = document.getElementById("email-l").value;
     var pass_l = document.getElementById("pass-l").value;
+    var check = document.getElementById("recordar").checked;
+    console.log(check);
 
     if (autor.email == email_l && autor.password == pass_l) {
         console.log("Login Correcto!");
         localStorage.setItem("user", autor.autor);
         localStorage.setItem("idUser", autor.id);
+        if (check) {
+            var miCookie = "";
+            var fecha = new Date();
+            fecha.setTime(fecha.getTime() + (365 * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + fecha.toUTCString();
+            miCookie = "user=" + autor.email + ";" + expires;
+            document.cookie = miCookie;
+        }else{
+            eliminarCookie("user");
+        }
         return true;
     }
 }
@@ -104,6 +122,7 @@ function comprobar(autor) {
         return true;
     }
 }
+
 function register(almacen) {
     var nuevoAutor = {};
     var email_r = document.getElementById("email-r").value
@@ -111,7 +130,10 @@ function register(almacen) {
     nuevoAutor.email = email_r;
     nuevoAutor.password = document.getElementById("pass-r").value;
     nuevoAutor.fecha_creacion = new Date().toLocaleDateString();
-    console.log(nuevoAutor);
+    nuevoAutor.foto_perfil = "/";
+    nuevoAutor.fondo_perfil = "/";
+    nuevoAutor.generos = "/";
+    //console.log(nuevoAutor);
     almacen.add(nuevoAutor);
 
     var peticion = almacen.getAll();

@@ -19,7 +19,7 @@ function cargar(tabla, origen) {
                 var valores = peticion.result;
 
                 if (origen == "buscador") {
-                    jsonSearch(valores,tabla);
+                    jsonSearch(valores, tabla);
                 } else
                     for (item in valores) {
                         switch (tabla) {
@@ -39,8 +39,12 @@ function cargar(tabla, origen) {
                                 }
                                 break;
                             case "autor":
-                                if (valores[item].autor == localStorage.getItem("autor")) {
-                                    insertarInfo(valores[item]);
+                                if (origen == "cuenta") {
+                                    cargarTabla(valores[item]);
+                                } else {
+                                    if (valores[item].autor == localStorage.getItem("autor")) {
+                                        insertarInfo(valores[item]);
+                                    }
                                 }
                                 break;
                             case "lista":
@@ -71,7 +75,7 @@ function cargar(tabla, origen) {
 
 function insertarListaAlbum(item) {
     var lista = document.getElementById("lista");
-    lista.className="album-list";
+    lista.className = "album-list";
     var nodoAlbum = document.createElement("div");
     nodoAlbum.className = "album-container";
 
@@ -169,14 +173,41 @@ function eliminar(nombre, id, rango) {
     }
 }
 
-function configurarAudio(){
+function leerCookie(clave) {
+    var resultado = "";
+    var busqueda = clave + "=";
+
+    var listCookies = document.cookie.split(';');
+    var par = "";
+
+    for (var i = 0; i < listCookies.length; i++) {
+        par = listCookies[i]; //Cada elemento del array de cookies: nombre de la cookie y carácter =
+
+        //Se quitan los espacios en blanco 
+        while (par.charAt(0) == ' ') {
+            par = par.substring(1);
+        }
+
+        //Se compara los que buscamos con el elemento del array. Si devuelve como índice 0 se ha encontrado
+        if (par.indexOf(busqueda) == 0) {
+            resultado = par.substring(busqueda.length, par.length);
+        }
+    }
+    return resultado;
+}
+
+function eliminarCookie(clave) {
+    //document.cookie = clave + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    document.cookie = clave + "=; max-age=0";
+}
+
+function configurarAudio() {
     $(function () {
         $('audio').on("play", function (current) {
             $('audio').each(function (i, event) {
                 if (event !== current.currentTarget) {
                     this.pause();
                     this.currentTime = 0;
-                    console.log("a");
                 }
             });
         });

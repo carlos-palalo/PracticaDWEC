@@ -1,8 +1,14 @@
 function buscar() {
-    var jsonBuscador = localStorage.getItem("buscador");
+    var jsonBuscador = sessionStorage.getItem("buscador");
     var buscador = document.getElementById("buscador").value;
     if (buscador != "") {
-        document.getElementById("resultado").innerHTML = "";
+        $(function () {
+            $("#resultado").offset({ top: $("#buscador").offset().top + 40, left: $("#buscador").offset().left });
+            //console.log($("#resultado").offset().left);
+            $("#resultado").slideDown("fast");
+        });
+
+        document.getElementById("resultado").innerText = "";
 
         obj = JSON.parse(jsonBuscador);
 
@@ -16,21 +22,17 @@ function buscar() {
             }
         });
         //console.log(obj);
-
-        $(function () {
-            $("#resultado").offset({ top: $("#buscador").offset().top + 40, left: $("#buscador").offset().left });
-            $("#resultado").slideDown("fast");
-        });
     } else {
         $(function () {
-            $("#resultado").hide();
+            $("#resultado").slideUp(200);
         })
     }
+
 }
 
 function filtrar(item, buscador, tipo) {
     if (item.toLowerCase().indexOf(buscador.toLowerCase()) != -1 && item != "Admin") {
-        console.log(item);
+        //console.log(item);
         var a = document.createElement("a");
         a.href = tipo + ".html";
         a.innerText = item;
@@ -45,6 +47,11 @@ function filtrar(item, buscador, tipo) {
 }
 
 $(function () {
+    $("#buscador").on("focus", function () {
+        if ($(this).val() != "") {
+            $("#resultado").slideDown(200);
+        }
+    });
     $("#buscador").on("blur", function () {
         $("#resultado").slideUp(200);
     });
