@@ -13,6 +13,7 @@ body{
 }
 
 button{
+    margin: 5px;
     padding: 20px;
     font-size: xx-large;
     text-align: center;

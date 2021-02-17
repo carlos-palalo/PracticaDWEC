@@ -2,6 +2,9 @@ function codigo() {
     document.getElementById("btn").addEventListener("click", function () {
         crearBD();
     });
+    document.getElementById("inicio").addEventListener("click",function(){
+        window.location.href="inicio.html";
+    });
 }
 
 function crearBD() {
