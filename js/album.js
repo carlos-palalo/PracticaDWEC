@@ -20,7 +20,7 @@ function insertarInfo(item) {
 
     var album = document.createElement("div");
     album.className = "album";
-    album.innerText = item.nombre+" - "+item.lanzamiento;
+    album.innerText = item.nombre + " - " + item.lanzamiento;
     info.appendChild(album);
 
     var pistas = document.createElement("div");
@@ -91,7 +91,7 @@ function cargarPistas(id) {
                         configurarAudio();
                     }
                 }
-                document.getElementById("num").innerText = cont-1;
+                document.getElementById("num").innerText = cont - 1;
             }
         }
         peticion.onerror = function (evento) {
