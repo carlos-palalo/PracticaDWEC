@@ -1,5 +1,4 @@
 function codigo() {
-
     if (localStorage.getItem("idUser") != undefined && localStorage.getItem("idUser") != "") {
         window.location.href = "index.html";
     }
@@ -43,6 +42,8 @@ function loginRegister(e) {
     } else if (window.indexedDB) {
         peticion = window.indexedDB.open("musica");
 
+        alert("Logueando")  //Descomentar si no funciona login
+
         peticion.onsuccess = function (evento) {
             console.log("Sucess");
 
@@ -54,10 +55,10 @@ function loginRegister(e) {
             peticionCursor.onsuccess = function () {
                 var cursor = peticionCursor.result;
                 var auxl = false;
-
                 if (cursor) {
                     switch (e.target.id) {
                         case "btn-iniciar":
+                            //alert(cursor.value.email);
                             auxl = login(cursor.value);
                             if (auxl) {
                                 alert("Login Correcto");
@@ -77,9 +78,6 @@ function loginRegister(e) {
                     if (e.target.id == "btn-registro") {
                         register(almacenAutores);
                     }
-                    /*if (localStorage.getItem("idUser") == undefined) {
-                        alert("Login Incorrecto");
-                    }*/
                     console.log("FIN");
                 }
             }
@@ -97,12 +95,12 @@ function login(autor) {
     var email_l = document.getElementById("email-l").value;
     var pass_l = document.getElementById("pass-l").value;
     var check = document.getElementById("recordar").checked;
-    console.log(check);
 
     if (autor.email == email_l && autor.password == pass_l) {
         console.log("Login Correcto!");
         localStorage.setItem("user", autor.autor);
         localStorage.setItem("idUser", autor.id);
+
         if (check) {
             var miCookie = "";
             var fecha = new Date();
@@ -110,7 +108,7 @@ function login(autor) {
             var expires = "expires=" + fecha.toUTCString();
             miCookie = "user=" + autor.email + ";" + expires;
             document.cookie = miCookie;
-        }else{
+        } else {
             eliminarCookie("user");
         }
         return true;
@@ -134,19 +132,24 @@ function register(almacen) {
     nuevoAutor.fondo_perfil = "/";
     nuevoAutor.generos = "/";
     //console.log(nuevoAutor);
-    almacen.add(nuevoAutor);
+    if (nuevoAutor.autor == "" || nuevoAutor.email == "" || nuevoAutor.password == "") { 
+        alert("Por favor, rellene todos los campos");
+    }
+    else {
+        almacen.add(nuevoAutor);
 
-    var peticion = almacen.getAll();
+        var peticion = almacen.getAll();
 
-    peticion.onsuccess = function () {
-        var valores = peticion.result;
+        peticion.onsuccess = function () {
+            var valores = peticion.result;
 
-        for (autor in valores) {
-            if (valores[autor].email == email_r) {
-                localStorage.setItem("user", valores[autor].autor);
-                localStorage.setItem("idUser", valores[autor].id);
-                alert("Registro correcto");
-                window.location.href = "index.html";
+            for (autor in valores) {
+                if (valores[autor].email == email_r) {
+                    localStorage.setItem("user", valores[autor].autor);
+                    localStorage.setItem("idUser", valores[autor].id);
+                    alert("Registro correcto");
+                    window.location.href = "index.html";
+                }
             }
         }
     }
