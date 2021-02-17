@@ -1,6 +1,6 @@
 function codigo() {
     if (localStorage.getItem("idUser") != undefined && localStorage.getItem("idUser") != "") {
-        window.location.href = "index.html";
+        window.location.href = "inicio.html";
     }
     var cookieUser = leerCookie("user");
     if (cookieUser != "") {
@@ -62,7 +62,7 @@ function loginRegister(e) {
                             auxl = login(cursor.value);
                             if (auxl) {
                                 alert("Login Correcto");
-                                window.location.href = "index.html";
+                                window.location.href = "inicio.html";
                             }
                             break;
                         case "btn-registro":
@@ -148,7 +148,7 @@ function register(almacen) {
                     localStorage.setItem("user", valores[autor].autor);
                     localStorage.setItem("idUser", valores[autor].id);
                     alert("Registro correcto");
-                    window.location.href = "index.html";
+                    window.location.href = "inicio.html";
                 }
             }
         }

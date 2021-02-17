@@ -10,7 +10,7 @@ function header(origen) {
     container.appendChild(logo);
 
     var enlace = document.createElement("a");
-    enlace.href = "index.html";
+    enlace.href = "inicio.html";
     enlace.innerText = "Inicio";
     logo.appendChild(enlace);
 
@@ -55,7 +55,7 @@ function header(origen) {
             nodoEnlace.href = "cuenta.html";
             nodoEnlace.innerText="Mi Cuenta";
         } else {
-            nodoEnlace.href = "index.html";
+            nodoEnlace.href = "inicio.html";
             nodoEnlace.innerText="Cerrar Sesión";
             nodoEnlace.addEventListener("click",function(){
                 localStorage.removeItem("idUser");
