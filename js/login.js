@@ -132,10 +132,9 @@ function register(almacen) {
     nuevoAutor.fondo_perfil = "/";
     nuevoAutor.generos = "/";
     //console.log(nuevoAutor);
-    if (nuevoAutor.autor == "" || nuevoAutor.email == "" || nuevoAutor.password == "") { 
+    if (nuevoAutor.autor == "" || nuevoAutor.email == "" || nuevoAutor.password == "") {
         alert("Por favor, rellene todos los campos");
-    }
-    else {
+    } else {
         almacen.add(nuevoAutor);
 
         var peticion = almacen.getAll();

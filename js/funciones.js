@@ -33,6 +33,13 @@ function cargar(tabla, origen) {
                                         if (valores[item].nombre == localStorage.getItem("album"))
                                             insertarInfo(valores[item]);
                                         break;
+                                    case "cuenta":
+                                        if (localStorage.getItem("user") == "Admin") {
+                                            cargarTabla(valores[item]);
+                                        } else if (valores[item].autor == localStorage.getItem("autor")) {
+                                            cargarTabla(valores[item]);
+                                        }
+                                        break;
                                     default:
                                         insertarListaAlbum(valores[item]);
                                         break;
@@ -40,7 +47,11 @@ function cargar(tabla, origen) {
                                 break;
                             case "autor":
                                 if (origen == "cuenta") {
-                                    cargarTabla(valores[item]);
+                                    if (localStorage.getItem("user") == "Admin") {
+                                        cargarTabla(valores[item]);
+                                    } else if (valores[item].autor == localStorage.getItem("autor")) {
+                                        cargarTabla(valores[item]);
+                                    }
                                 } else {
                                     if (valores[item].autor == localStorage.getItem("autor")) {
                                         insertarInfo(valores[item]);
@@ -48,13 +59,29 @@ function cargar(tabla, origen) {
                                 }
                                 break;
                             case "lista":
-                                if (valores[item].autor == localStorage.getItem("autor")) {
-                                    insertarListas(valores[item]);
+                                if (origen == "cuenta") {
+                                    if (localStorage.getItem("user") == "Admin") {
+                                        cargarTabla(valores[item]);
+                                    } else if (valores[item].autor == localStorage.getItem("autor")) {
+                                        cargarTabla(valores[item]);
+                                    }
+                                } else {
+                                    if (valores[item].autor == localStorage.getItem("autor")) {
+                                        insertarListas(valores[item]);
+                                    }
                                 }
                                 break;
                             case "pista":
-                                if (valores[item].autor == localStorage.getItem("autor")) {
-                                    insertarPistas(valores[item]);
+                                if (origen == "cuenta") {
+                                    if (localStorage.getItem("user") == "Admin") {
+                                        cargarTabla(valores[item]);
+                                    } else if (valores[item].autor == localStorage.getItem("autor")) {
+                                        cargarTabla(valores[item]);
+                                    }
+                                } else {
+                                    if (valores[item].autor == localStorage.getItem("autor")) {
+                                        insertarPistas(valores[item]);
+                                    }
                                 }
                                 break;
                         }

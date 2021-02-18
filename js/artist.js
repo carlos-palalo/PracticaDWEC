@@ -45,7 +45,7 @@ function insertarInfo(item) {
     nodoInfo.className = "info";
     var generos = item.generos.split(",");
     generos.forEach(x => {
-        nodoInfo.textContent += "#" + x + " ";
+        nodoInfo.textContent += "#" + x.trim() + " ";
     });
     nodoDesc.appendChild(nodoInfo);
 

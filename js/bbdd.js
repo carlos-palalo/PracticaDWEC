@@ -2,8 +2,8 @@ function codigo() {
     document.getElementById("btn").addEventListener("click", function () {
         crearBD();
     });
-    document.getElementById("inicio").addEventListener("click",function(){
-        window.location.href="inicio.html";
+    document.getElementById("inicio").addEventListener("click", function () {
+        window.location.href = "inicio.html";
     });
 }
 
@@ -19,11 +19,11 @@ function crearBD() {
 
             /*************** AUTORES *************/
             almacenAutor = transaccion.objectStore("autor");
-            almacenAutor.add({ id: 1, autor: "Admin", email: "admin@gmail.com", password: "Admin12", fecha_creacion: new Date().toLocaleDateString() });
-            almacenAutor.add({ id: 2, autor: "Desakato", email: "desakato@gmail.com", password: "Desakato1", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "img/perfil_desakato.jpg", fondo_perfil: "img/fondo_desakato.jpg", generos: "Rock,Punk" });
-            almacenAutor.add({ id: 3, autor: "Thirty Seconds To Mars", email: "thirtysecondstomars@gmail.com", password: "Thirtyecondstomars1", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "img/perfil_thirtysecondstomars.jpg", fondo_perfil: "img/fondo_thirtysecondstomars.jpg", generos: "Rock alternativo,Post-grunge,Hard Rock,Rock Indie" });
-            almacenAutor.add({ id: 4, autor: "La Raíz", email: "laraiz@gmail.com", password: "Laraiz1", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "img/perfil_laraiz.jpg", fondo_perfil: "img/fondo_laraiz.jpg", generos: "Ska,Rock,Reggae,Fusion,Rap" });
-            almacenAutor.add({ id: 5, autor: "The Offspring", email: "theoffspring@gmail.com", password: "Theoffspring1", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "img/perfil_theoffspring.jpg", fondo_perfil: "img/fondo_theoffspring.jpg", generos: "Pop Punk,Punk Rock,Rock alternativo" });
+            almacenAutor.add({ id: 1, autor: "Admin", email: "admin@gmail.com", password: "Admin12", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "", fondo_perfil: "", generos: "" });
+            almacenAutor.add({ id: 2, autor: "Desakato", email: "desakato@gmail.com", password: "Desakato1", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "img/perfil_desakato.jpg", fondo_perfil: "img/fondo_desakato.jpg", generos: "Rock, Punk" });
+            almacenAutor.add({ id: 3, autor: "Thirty Seconds To Mars", email: "thirtysecondstomars@gmail.com", password: "Thirtyecondstomars1", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "img/perfil_thirtysecondstomars.jpg", fondo_perfil: "img/fondo_thirtysecondstomars.jpg", generos: "Rock alternativo, Post-grunge, Hard Rock, Rock Indie" });
+            almacenAutor.add({ id: 4, autor: "La Raíz", email: "laraiz@gmail.com", password: "Laraiz1", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "img/perfil_laraiz.jpg", fondo_perfil: "img/fondo_laraiz.jpg", generos: "Ska, Rock, Reggae, Fusion, Rap" });
+            almacenAutor.add({ id: 5, autor: "The Offspring", email: "theoffspring@gmail.com", password: "Theoffspring1", fecha_creacion: new Date().toLocaleDateString(), foto_perfil: "img/perfil_theoffspring.jpg", fondo_perfil: "img/fondo_theoffspring.jpg", generos: "Pop Punk, Punk Rock, Rock alternativo" });
 
             /*************** ALBUM *************/
             almacenAlbum = transaccion.objectStore("album");
