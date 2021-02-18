@@ -72,16 +72,22 @@ function cargar(tabla, origen) {
                                 }
                                 break;
                             case "pista":
-                                if (origen == "cuenta") {
-                                    if (localStorage.getItem("user") == "Admin") {
-                                        cargarTabla(valores[item]);
-                                    } else if (valores[item].autor == localStorage.getItem("autor")) {
-                                        cargarTabla(valores[item]);
-                                    }
-                                } else {
-                                    if (valores[item].autor == localStorage.getItem("autor")) {
-                                        insertarPistas(valores[item]);
-                                    }
+                                switch (origen) {
+                                    case "lista":
+                                        cargarListas(valores[item]);
+                                        break;
+                                    case "cuenta":
+                                        if (localStorage.getItem("user") == "Admin") {
+                                            cargarTabla(valores[item]);
+                                        } else if (valores[item].autor == localStorage.getItem("autor")) {
+                                            cargarTabla(valores[item]);
+                                        }
+                                        break;
+                                    default:
+                                        if (valores[item].autor == localStorage.getItem("autor")) {
+                                            insertarPistas(valores[item]);
+                                        }
+                                        break;
                                 }
                                 break;
                         }
@@ -98,6 +104,21 @@ function cargar(tabla, origen) {
     } else {
         console.log("IndexedDB no está soportado");
     }
+}
+
+function fase1(pEvento) {
+    //console.log(pEvento.target);
+    pEvento.dataTransfer.setData("", pEvento.target.id);
+}
+
+function fase2(pEvento) {
+    pEvento.preventDefault();
+}
+
+function fase3(pEvento) {
+    var datos = pEvento.dataTransfer.getData("");
+    //console.log(document.getElementById(datos));
+    pEvento.currentTarget.appendChild(document.getElementById(datos));
 }
 
 function insertarListaAlbum(item) {
